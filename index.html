@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roebling Labs | Bridge Monitoring with Video Sensors</title>
+    <title>Roebling Labs | Vessel Collision Monitoring for Bridges</title>
     <style>
         /* Design System Variables */
         :root {
@@ -13,6 +13,10 @@
             --accent-blue: #4da6ff;
             --dark-gray: #0a0a0a;
             --card-bg: #1a1a1a;
+            --threat-red: #ff0000;
+            --threat-orange: #ff8c00;
+            --threat-yellow: #ffd700;
+            --threat-green: #00ff00;
         }
 
         /* Base Styles */
@@ -134,64 +138,97 @@
             max-width: 800px;
             margin: 2rem auto;
             display: block;
+            border-radius: 8px;
         }
 
-        .split-images {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+        /* Threat Level Indicators */
+        .threat-levels {
             margin: 2rem 0;
         }
 
-        .split-images img {
+        .threat-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1.5rem;
+            gap: 1rem;
+        }
+
+        .threat-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 4px;
+        }
+
+        .threat-dot.red { background: var(--threat-red); }
+        .threat-dot.orange { background: var(--threat-orange); }
+        .threat-dot.yellow { background: var(--threat-yellow); }
+        .threat-dot.green { background: var(--threat-green); }
+
+        /* Bridge Table */
+        .bridge-table-section {
+            overflow-x: auto;
+            margin: 2rem 0;
+        }
+
+        table {
             width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: var(--card-bg);
+        }
+
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid var(--dark-gray);
+        }
+
+        th {
+            background: var(--dark-gray);
+            color: var(--text-blue);
+            font-weight: bold;
+        }
+
+        td {
+            color: var(--text-white);
+        }
+
+        tr:hover {
+            background: rgba(0, 132, 255, 0.1);
+        }
+
+        table a {
+            color: var(--text-blue);
+            text-decoration: none;
+        }
+
+        table a:hover {
+            color: var(--accent-blue);
+            text-decoration: underline;
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            gap: 3rem;
+            align-items: flex-start;
+            margin-top: 2rem;
+        }
+
+        .about-image {
+            flex-shrink: 0;
+        }
+
+        .about-image img {
+            width: 250px;
             height: auto;
             border-radius: 8px;
         }
 
-        /* Video Embed */
-        .video-wrapper {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 800px;
-            margin: 2rem auto;
-        }
-
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Products Section */
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .product-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            border: 1px solid var(--text-blue);
-        }
-
-        .product-card img {
-            width: 100%;
-            height: auto;
-            margin-bottom: 1rem;
-            border-radius: 5px;
-        }
-
-        .product-card h3 {
-            margin-bottom: 1rem;
+        .about-text {
+            flex: 1;
         }
 
         /* Buttons */
@@ -211,32 +248,6 @@
         .cta-button:hover {
             background: transparent;
             color: var(--text-blue);
-        }
-
-        /* Blog Section */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .blog-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--text-blue);
-        }
-
-        .blog-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .blog-card p {
-            font-size: 1rem;
-            color: var(--text-white);
-            margin-bottom: 1rem;
         }
 
         /* Contact Section */
@@ -294,22 +305,35 @@
             h1 { font-size: 2.5rem; }
             h2 { font-size: 2rem; }
             h3 { font-size: 1.3rem; }
-            
+
             .nav-links {
                 display: none;
             }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
+
+            .about-content {
+                flex-direction: column;
             }
-            
+
+            .about-image img {
+                width: 100%;
+                max-width: 300px;
+            }
+
             .newsletter-form {
                 flex-direction: column;
             }
-            
+
             .newsletter-form input[type="email"] {
                 width: 100%;
                 max-width: 400px;
+            }
+
+            table {
+                font-size: 0.9rem;
+            }
+
+            th, td {
+                padding: 8px;
             }
         }
     </style>
@@ -325,9 +349,8 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#problem">Problem</a></li>
                 <li><a href="#solution">Solution</a></li>
-                <li><a href="#demo">Demonstration</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#blog">Blog</a></li>
+                <li><a href="#demo">See It In Action</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -341,7 +364,7 @@
                     <img src="images/Logo-Roebling-Labs.jpeg" alt="Roebling Labs LLC">
                 </div>
                 <h1>Roebling Labs LLC</h1>
-                <p>Bridge monitoring with video sensors</p>
+                <p>We protect bridges from vessel collisions using real-time transponder (AIS) tracking and computer vision.</p>
             </div>
         </div>
     </section>
@@ -350,23 +373,15 @@
     <section id="problem" class="dark-section">
         <div class="container">
             <h2>Problem</h2>
-            
-            <!-- Inspection -->
-            <div class="problem-inspection">
-                <h3>Inspection</h3>
-                <p>Bridge inspectors are blind to structural overloading and damage on the 99.9% of days that no one is onsite.</p>
-                <img src="images/Bridge-Inspection-Problem.jpg" alt="Bridge Inspection Problem" class="content-image">
-            </div>
-            
-            <!-- Incidents to Avert -->
-            <div class="problem-incidents">
-                <h3>Incidents to Avert</h3>
-                <p>Bridge monitoring can avert incidents such as the I-40 Hernando de Soto Bridge in 2021 and the Fern Hollow Bridge in 2022. These bridges cost tens of millions of dollars to repair. When adding trucking delays, detours, and disruption to the local economy, these incidents each cost society into the hundreds of millions of dollars. Life loss is an added risk.</p>
-                <div class="split-images">
-                    <img src="images/Fern-Hollow-Bridge-Collapse-2022.jpg" alt="Fern Hollow Bridge Collapse 2022">
-                    <img src="images/I-40-deSoto-Bridge-2021.jpg" alt="I-40 de Soto Bridge 2021">
-                </div>
-            </div>
+
+            <p>Bridges are unattended 99.9% of the time. Vessel strikes happen fast. By the time anyone could notice an errant ship, it is likely too late.</p>
+
+            <p>When the containership Dali collided with the Francis Scott Key Bridge, police had only two minutes warning to close the roadway. Six people died and the collapse cost society an estimated $5 Billion. The Port of Baltimore was closed for months and 8,000 workers lost their jobs.</p>
+
+            <img src="images/dali-bridge-collision.png" alt="The containership Dali with portions of the collapsed Francis Scott Key Bridge across its forward deck on March 28, 2024" class="content-image">
+            <p style="text-align: center; font-size: 0.9rem; color: var(--accent-blue);">Photo: The containership Dali with portions of the collapsed Francis Scott Key Bridge across its forward deck on March 28, 2024. (Source: NTSB)</p>
+
+            <p>After an intensive investigation, the National Transportation Safety Board (NTSB) identified 68 bridges across the U.S. that are potentially vulnerable to vessel collision risk.</p>
         </div>
     </section>
 
@@ -374,113 +389,474 @@
     <section id="solution">
         <div class="container">
             <h2>Solution</h2>
-            <p>Bridge monitoring provides early detection of structural damage and overloading.</p>
-            <p>This reduces lifecycle costs to owners and increases the safety of the traveling public. Early intervention is made possible by timely and useful data.</p>
-            <p>Our video sensors are easily installed without wires and standardized for any bridge.</p>
+
+            <p>NTSB Report MIR-25-10 recommends that monitoring systems be installed on bridges to protect against vessel collision risk. NTSB has specifically flagged 68 bridges, owned by 30 different agencies across the U.S., as vulnerable to vessel collision risk.</p>
+
+            <p>Roebling Labs LLC has developed Smart Bridge in a Box™ specifically so that owners can comply with these NTSB recommendations to protect your bridge and the travelling public.</p>
+
+            <p>We synthesize the data for each detected vessel into a single threat assessment rating.</p>
+
+            <p>Only vessels that truly and imminently threaten the structural integrity of your bridge will result in the highest threat rating: <strong>ALARM - Close Bridge Immediately</strong>. We understand how costly and disruptive false alarms would be.</p>
+
+            <div class="threat-levels">
+                <div class="threat-item">
+                    <div class="threat-dot red"></div>
+                    <div>
+                        <strong style="color: var(--text-blue);">ALARM - Close Bridge Immediately</strong>
+                        <p>Only vessels that truly and imminently threaten the structural integrity of your bridge will result in this highest threat rating.</p>
+                    </div>
+                </div>
+
+                <div class="threat-item">
+                    <div class="threat-dot orange"></div>
+                    <div>
+                        <strong style="color: var(--text-blue);">ELEVATED MONITORING - Heightened Awareness</strong>
+                        <p>This threat category applies when a large vessel is approaching the bridge at close range. Its speed must be sufficient to create an impact load (demand) that would overwhelm the lateral capacity of a nearby bridge pier (Demand/Capacity > 1.0) in the case of a direct collision. This threat level is routine when large vessels transit the main channel under the bridge. Such a vessel will only be elevated to ALARM status if it is approaching with excessive speed, outside the channel, or sending distress signals.</p>
+                    </div>
+                </div>
+
+                <div class="threat-item">
+                    <div class="threat-dot yellow"></div>
+                    <div>
+                        <strong style="color: var(--text-blue);">MONITOR - Routine Tracking</strong>
+                        <p>This threat category is for large vessels that could conceivably damage the bridge in case of impact but are currently at a distance of more than ten nautical miles from the bridge site.</p>
+                    </div>
+                </div>
+
+                <div class="threat-item">
+                    <div class="threat-dot green"></div>
+                    <div>
+                        <strong style="color: var(--text-blue);">NEGLIGIBLE THREAT</strong>
+                        <p>This category is for vessels that are either stationary, likely anchored in port, or so small that they aren't expected to do serious damage even if they did collide with the bridge.</p>
+                    </div>
+                </div>
+            </div>
+
+            <p>Your Smart Bridge in a Box™ hardware unit is mounted on your bridge site in a waterproof enclosure and is networked using a cellular or satellite modem (site dependent). It operates remotely and autonomously. It includes a receiver to gather AIS vessel transponder data. To increase threat assessment accuracy at close range, transponder data is supplemented by computer vision to track high-risk vessels as they approach the bridge.</p>
         </div>
     </section>
 
     <!-- 4. Demo Section -->
     <section id="demo" class="dark-section">
         <div class="container">
-            <h2>Demonstration</h2>
-            <p>Bridge managers can install "virtual sensors" to any visible portion of their model structure. No physical sensors are needed on the actual structure.</p>
-            <p>Roebling Labs measures deflections and vibrations to 0.001-inch precision using video sensors placed on the shore.</p>
-            <p>If an overloaded vehicle, excessive environmental load, or a beyond threshold structural deflection or crack is detected, our system will send an alert, including a video clip of the incident.</p>
-            <p>Bridge managers can catch and resolve problems at remote sites earlier; proactively saving money and increasing safety.</p>
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/9U3C560-d0g" allowfullscreen></iframe>
+            <h2>See It In Action</h2>
+
+            <img src="images/vessel-monitoring-screenshot.png" alt="Screenshot of an example Vessel Collision Monitoring System by Roebling Labs" class="content-image">
+            <p style="text-align: center; font-size: 0.9rem; color: var(--accent-blue); margin-bottom: 2rem;">Screenshot of an example Vessel Collision Monitoring System by Roebling Labs.</p>
+
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem;">See a demonstration vessel collision monitoring system for your bridge using real vessel data. Now monitoring 2 of 68 NTSB-flagged bridges. Your bridge could be next.</p>
+
+            <div class="bridge-table-section">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>State</th>
+                            <th>Bridge Name</th>
+                            <th>Bridge Owner</th>
+                            <th>Classification</th>
+                            <th>Year Built</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Louisiana</td>
+                            <td><a href="https://www.roeblinglabs.com/francis-scott-key-bridge/" target="_blank">Israel LaFleur Bridge</a></td>
+                            <td>Louisiana DOT and Development</td>
+                            <td>Critical/Essential</td>
+                            <td>1964</td>
+                        </tr>
+                        <tr>
+                            <td>Louisiana</td>
+                            <td>Crescent City Connection Bridge</td>
+                            <td>Louisiana DOT and Development</td>
+                            <td>Critical/Essential</td>
+                            <td>1985</td>
+                        </tr>
+                        <tr>
+                            <td>Louisiana</td>
+                            <td>Hale Boggs (Luling) Bridge</td>
+                            <td>Louisiana DOT and Development</td>
+                            <td>Critical/Essential</td>
+                            <td>1983</td>
+                        </tr>
+                        <tr>
+                            <td>Louisiana</td>
+                            <td>Horace Wilkinson Bridge</td>
+                            <td>Louisiana DOT and Development</td>
+                            <td>Critical/Essential</td>
+                            <td>1968</td>
+                        </tr>
+                        <tr>
+                            <td>Louisiana</td>
+                            <td>Gramercy (Veterans Memorial) Bridge</td>
+                            <td>Louisiana DOT and Development</td>
+                            <td>Typical</td>
+                            <td>1989</td>
+                        </tr>
+                        <tr>
+                            <td>Louisiana</td>
+                            <td>Sunshine Bridge</td>
+                            <td>Louisiana DOT and Development</td>
+                            <td>Typical</td>
+                            <td>1963</td>
+                        </tr>
+                        <tr>
+                            <td>Maryland</td>
+                            <td>William Preston Lane Jr. (Bay) Bridge (eastbound)</td>
+                            <td>Maryland Transportation Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1951</td>
+                        </tr>
+                        <tr>
+                            <td>Maryland</td>
+                            <td>William Preston Lane Jr. (Bay) Bridge (westbound)</td>
+                            <td>Maryland Transportation Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1973</td>
+                        </tr>
+                        <tr>
+                            <td>Maryland</td>
+                            <td>Chesapeake City Bridge</td>
+                            <td>US Army Corps of Engineers</td>
+                            <td>Typical</td>
+                            <td>1948</td>
+                        </tr>
+                        <tr>
+                            <td>Massachusetts</td>
+                            <td>Tobin Bridge (southbound upper)</td>
+                            <td>Massachusetts DOT</td>
+                            <td>Typical</td>
+                            <td>1950</td>
+                        </tr>
+                        <tr>
+                            <td>Massachusetts</td>
+                            <td>Tobin Bridge (northbound lower)</td>
+                            <td>Massachusetts DOT</td>
+                            <td>Typical</td>
+                            <td>1950</td>
+                        </tr>
+                        <tr>
+                            <td>Massachusetts</td>
+                            <td>Bourne Bridge</td>
+                            <td>US Army Corps of Engineers</td>
+                            <td>Critical/Essential</td>
+                            <td>1935</td>
+                        </tr>
+                        <tr>
+                            <td>Massachusetts</td>
+                            <td>Sagamore Bridge</td>
+                            <td>US Army Corps of Engineers</td>
+                            <td>Typical</td>
+                            <td>1935</td>
+                        </tr>
+                        <tr>
+                            <td>Michigan</td>
+                            <td>Mackinac Bridge</td>
+                            <td>Mackinac Bridge Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1957</td>
+                        </tr>
+                        <tr>
+                            <td>New Hampshire</td>
+                            <td>Memorial Bridge</td>
+                            <td>New Hampshire DOT</td>
+                            <td>Typical</td>
+                            <td>1921</td>
+                        </tr>
+                        <tr>
+                            <td>New Jersey</td>
+                            <td>Commodore Barry Bridge</td>
+                            <td>Delaware River Port Authority</td>
+                            <td>Typical</td>
+                            <td>1974</td>
+                        </tr>
+                        <tr>
+                            <td>New Jersey</td>
+                            <td>Vincent R. Casciano (Newark Bay) Bridge</td>
+                            <td>New Jersey Turnpike Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1955</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Verrazano Narrows Bridge (eastbound)</td>
+                            <td>MTA Bridges and Tunnels</td>
+                            <td>Critical/Essential</td>
+                            <td>1961</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Verrazano Narrows Bridge (westbound)</td>
+                            <td>MTA Bridges and Tunnels</td>
+                            <td>Critical/Essential</td>
+                            <td>1961</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Brooklyn Bridge</td>
+                            <td>New York City DOT</td>
+                            <td>Typical</td>
+                            <td>1883</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Manhattan Bridge</td>
+                            <td>New York City DOT</td>
+                            <td>Typical</td>
+                            <td>1909</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Williamsburg Bridge</td>
+                            <td>New York City DOT</td>
+                            <td>Typical</td>
+                            <td>1903</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Newburgh-Beacon Bridge (eastbound)</td>
+                            <td>New York State Bridge Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1980</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Newburgh-Beacon Bridge (westbound)</td>
+                            <td>New York State Bridge Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1963</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Rip Van Winkle Bridge</td>
+                            <td>New York State Bridge Authority</td>
+                            <td>Typical</td>
+                            <td>1935</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Ogdensburg-Prescott International Bridge</td>
+                            <td>Ogdensburg Bridge and Port Authority</td>
+                            <td>Typical</td>
+                            <td>1960</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>George Washington Bridge</td>
+                            <td>Port Authority of New York and New Jersey</td>
+                            <td>Critical/Essential</td>
+                            <td>1962</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Outerbridge Crossing Bridge</td>
+                            <td>Port Authority of New York and New Jersey</td>
+                            <td>Typical</td>
+                            <td>1928</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Seaway International Bridge</td>
+                            <td>Seaway International Bridge Corporation</td>
+                            <td>Typical</td>
+                            <td>1958</td>
+                        </tr>
+                        <tr>
+                            <td>New York</td>
+                            <td>Thousand Islands Bridge</td>
+                            <td>Thousand Islands Bridge Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1938</td>
+                        </tr>
+                        <tr>
+                            <td>Ohio</td>
+                            <td>CUY-00490-0010 (I-490) Bridge</td>
+                            <td>Ohio DOT</td>
+                            <td>Critical/Essential</td>
+                            <td>1990</td>
+                        </tr>
+                        <tr>
+                            <td>Ohio</td>
+                            <td>CUY-00002-1441 (Main Avenue) Bridge</td>
+                            <td>Ohio DOT</td>
+                            <td>Typical</td>
+                            <td>1939</td>
+                        </tr>
+                        <tr>
+                            <td>Ohio</td>
+                            <td>CUY-00006-1456 (Detroit Avenue) Bridge</td>
+                            <td>Ohio DOT</td>
+                            <td>Typical</td>
+                            <td>1917</td>
+                        </tr>
+                        <tr>
+                            <td>Ohio</td>
+                            <td>CUY-00010-1613 (Carnegie Avenue) Bridge</td>
+                            <td>Ohio DOT</td>
+                            <td>Typical</td>
+                            <td>1932</td>
+                        </tr>
+                        <tr>
+                            <td>Ohio</td>
+                            <td>LUC-01W02-0002 (Dr. Martin Luther King Jr. Memorial) Bridge</td>
+                            <td>Ohio DOT</td>
+                            <td>Typical</td>
+                            <td>1914</td>
+                        </tr>
+                        <tr>
+                            <td>Ohio</td>
+                            <td>LUC-00002-1862 (Anthony Wayne) Bridge</td>
+                            <td>Ohio DOT</td>
+                            <td>Typical</td>
+                            <td>1931</td>
+                        </tr>
+                        <tr>
+                            <td>Oregon</td>
+                            <td>Astoria-Megler Bridge</td>
+                            <td>Oregon DOT</td>
+                            <td>Critical/Essential</td>
+                            <td>1966</td>
+                        </tr>
+                        <tr>
+                            <td>Oregon</td>
+                            <td>St. Johns Bridge</td>
+                            <td>Oregon DOT</td>
+                            <td>Typical</td>
+                            <td>1931</td>
+                        </tr>
+                        <tr>
+                            <td>Pennsylvania</td>
+                            <td>Walt Whitman Bridge</td>
+                            <td>Delaware River Port Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1957</td>
+                        </tr>
+                        <tr>
+                            <td>Pennsylvania</td>
+                            <td>Benjamin Franklin Bridge</td>
+                            <td>Delaware River Port Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1926</td>
+                        </tr>
+                        <tr>
+                            <td>Pennsylvania</td>
+                            <td>Betsy Ross Bridge</td>
+                            <td>Delaware River Port Authority</td>
+                            <td>Typical</td>
+                            <td>1976</td>
+                        </tr>
+                        <tr>
+                            <td>Pennsylvania</td>
+                            <td>Delaware River Turnpike Bridge</td>
+                            <td>Pennsylvania Turnpike Commission and New Jersey Turnpike Authority</td>
+                            <td>Critical/Essential</td>
+                            <td>1956</td>
+                        </tr>
+                        <tr>
+                            <td>Rhode Island</td>
+                            <td>Claiborne Pell Newport Bridge</td>
+                            <td>Rhode Island Turnpike and Bridge Authority</td>
+                            <td>Typical</td>
+                            <td>1969</td>
+                        </tr>
+                        <tr>
+                            <td>Texas</td>
+                            <td>Buffalo Bayou Toll Bridge</td>
+                            <td>Harris County Toll Road Authority</td>
+                            <td>Typical</td>
+                            <td>1980</td>
+                        </tr>
+                        <tr>
+                            <td>Texas</td>
+                            <td>Sidney Sherman Bridge</td>
+                            <td>Texas DOT</td>
+                            <td>Critical/Essential</td>
+                            <td>1973</td>
+                        </tr>
+                        <tr>
+                            <td>Texas</td>
+                            <td>Rainbow Bridge</td>
+                            <td>Texas DOT</td>
+                            <td>Critical/Essential</td>
+                            <td>1939</td>
+                        </tr>
+                        <tr>
+                            <td>Texas</td>
+                            <td>Veterans Memorial Bridge</td>
+                            <td>Texas DOT</td>
+                            <td>Critical/Essential</td>
+                            <td>1991</td>
+                        </tr>
+                        <tr>
+                            <td>Texas</td>
+                            <td>Hartman Bridge (eastbound)</td>
+                            <td>Texas DOT</td>
+                            <td>Typical</td>
+                            <td>1995</td>
+                        </tr>
+                        <tr>
+                            <td>Texas</td>
+                            <td>Hartman Bridge (westbound)</td>
+                            <td>Texas DOT</td>
+                            <td>Typical</td>
+                            <td>1995</td>
+                        </tr>
+                        <tr>
+                            <td>Texas</td>
+                            <td>GulfGate Bridge</td>
+                            <td>Texas DOT</td>
+                            <td>Typical</td>
+                            <td>1970</td>
+                        </tr>
+                        <tr>
+                            <td>Washington</td>
+                            <td>Lewis and Clark Bridge</td>
+                            <td>Washington State DOT</td>
+                            <td>Critical/Essential</td>
+                            <td>1929</td>
+                        </tr>
+                        <tr>
+                            <td>Wisconsin</td>
+                            <td>Leo Frigo Bridge</td>
+                            <td>Wisconsin DOT</td>
+                            <td>Critical/Essential</td>
+                            <td>1979</td>
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
     </section>
 
-    <!-- 5. Products Section -->
-    <section id="products">
+    <!-- 5. About Section -->
+    <section id="about">
         <div class="container">
-            <h2>Two Solutions to Fit Your Needs</h2>
-            <p>Our vision is to monitor every bridge.</p>
-            
-            <div class="products-grid">
-                <div class="product-card">
-                    <h3>Smart Bridge on a Tripod™</h3>
-                    <img src="images/Smart-Bridge-on-a-Tripod.jpeg" alt="Smart Bridge on a Tripod">
-                    <p>We bring Smart Bridge on a Tripod™ onsite for one day along with a human operator.</p>
-                    <a href="https://roeblinglabs.square.site/product/smart-bridge-on-a-tripod/1?cs=true&cst=custom" class="cta-button" target="_blank">
-                        Learn More & Purchase
-                    </a>
+            <h2>About Us</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="images/scott-snelling-headshot.jpg" alt="Scott Snelling, PE, MBA">
                 </div>
-                
-                <div class="product-card">
-                    <h3>Smart Bridge in a Box™</h3>
-                    <img src="images/Smart-Bridge-in-a-Box.jpeg" alt="Smart Bridge in a Box">
-                    <p>We permanently install Smart Bridge in a Box™ onsite within a weatherproof enclosure. It operates autonomously. The system is operataed remotely via a cellular modem, is solar powered, and human operators needn't be onsite.</p>
-                    <p>To bridge owners and consulting engineers that are interested in deploying a Smart Bridge in a Box™ at their site, send us an email to <a href="mailto:scott@roeblinglabs.com" style="color: var(--text-blue);">scott@roeblinglabs.com</a> to discuss the costs for your project.</p> 
-                    <p>Participation in a case study can unlock significant savings in 2025 as we continue to work with beta partners.</p>
+                <div class="about-text">
+                    <p>Scott Snelling, PE, MBA is the CEO of Roebling Labs, LLC. He has 20+ years of bridge engineering experience having led complex bridge projects across the U.S. and abroad. Scott co-authored a portion of the Bridge Engineering Handbook. He led projects to revise AASHTO bridge design standards, as well as AASHTO bridge maintenance, evaluation, and inspection standards. With Roebling Labs, Scott has developed and field tested numerous emerging bridge assessment technologies.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 6. Blog Section -->
-    <section id="blog" class="dark-section">
-        <div class="container">
-            <h2>Blog</h2>
-            <p>Latest insights and updates from Roebling Labs</p>
-            
-            <div class="blog-grid">
-                <!-- Latest Blog Post -->
-                <div class="blog-card">
-                    <h3>Bridge Monitoring with Video Sensors</h3>
-                    <p>Watch our four-minute presentation about how video sensors can help you better manage your bridges.</p>
-                    <a href="blog.html#bridge-monitoring-presentation" class="cta-button">Read More</a>
-                </div>
-                
-                <!-- Placeholder Blog Posts -->
-                <div class="blog-card">
-                    <h3>IBC 2024</h3>
-                    <p>Coming soon: Our experience and insights from the International Bridge Conference 2024.</p>
-                    <a href="blog.html#ibc-2024" class="cta-button">Coming Soon</a>
-                </div>
-                
-                <div class="blog-card">
-                    <h3>Crowdsense Bridge Monitoring</h3>
-                    <p>Exploring the future of crowd-sourced bridge health monitoring.</p>
-                    <a href="blog.html#crowdsense" class="cta-button">Coming Soon</a>
-                </div>
-                
-                <div class="blog-card">
-                    <h3>Bridge Vibration App</h3>
-                    <p>Learn about our innovative mobile application for measuring bridge vibrations.</p>
-                    <a href="blog.html#vibration-app" class="cta-button">Coming Soon</a>
-                </div>
-                
-                <div class="blog-card">
-                    <h3>Emerging Technologies in Structural Health Monitoring</h3>
-                    <p>Our article published in Bridge Design & Engineering magazine.</p>
-                    <a href="blog.html#emerging-tech" class="cta-button">Coming Soon</a>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 2rem;">
-                <a href="blog.html" class="cta-button">View All Blog Posts</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- 7. Contact Section -->
-    <section id="contact">
+    <!-- 6. Contact Section -->
+    <section id="contact" class="dark-section">
         <div class="container">
             <div class="contact-content">
                 <h2>Contact Info</h2>
-                <p>To our existing beta partners, we welcome your feedback for how we can continue to improve your system.</p>
-                <p>To bridge owners and consulting engineers that are interested in using our solutions, send me an email at <a href="mailto:scott@roeblinglabs.com" style="color: var(--text-blue);">scott@roeblinglabs.com</a> to discuss the costs for your project.</p>
-                <p>Participation in a case study can unlock significant savings in 2025 as we continue to work with beta partners.</p>
-                
-                <!-- Updated Newsletter Form with Formspree Integration -->
+                <p>Email <a href="mailto:scott@roeblinglabs.com" style="color: var(--text-blue); text-decoration: none;">scott@roeblinglabs.com</a> to protect your bridge today.</p>
+                <p><strong>Pilot program available</strong> - deploy at your site with no upfront commitment. Pay only after successful validation.</p>
+
+                <!-- Newsletter Form with Formspree Integration -->
                 <form id="emailSignInForm" action="https://formspree.io/f/xwkgdbvz" method="POST" class="newsletter-form">
-                    <input type="email" id="email" name="email" placeholder="Enter your email" class="large-input" required>
-                    <button type="submit" class="button">Subscribe to Newsletter</button>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe to Newsletter</button>
                 </form>
+                <p style="font-size: 0.9rem; margin-top: 1rem;">Get updates on NTSB requirements, new bridge monitoring deployments, and best practices for protecting bridges against vessel collision and other threats.</p>
                 <div id="form-success">Thank you for subscribing! We'll be in touch soon.</div>
             </div>
         </div>
@@ -500,10 +876,10 @@
         // Newsletter form submission with Formspree
         document.getElementById('emailSignInForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
+
             const form = this;
             const successMessage = document.getElementById('form-success');
-            
+
             fetch(form.action, {
                 method: form.method,
                 body: new FormData(form),
@@ -516,12 +892,12 @@
                     // Show success message
                     form.reset();
                     successMessage.style.display = 'block';
-                    
+
                     // Hide success message after 5 seconds
                     setTimeout(function() {
                         successMessage.style.display = 'none';
                     }, 5000);
-                    
+
                     return response.json();
                 } else {
                     throw new Error('Form submission failed');
