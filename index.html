@@ -392,47 +392,11 @@
         <div class="container">
             <h2>Solution</h2>
 
-            <p>The NTSB recommends that owners of vulnerable bridges install a vessel collision warning system to protect the traveling public against vessel collision risk. NTSB has flagged 68 bridges, owned by 30 different agencies across the U.S., as vulnerable to vessel collision risk.</p>
+            <p>Roebling Labs protects bridge users from vessel collision using real-time transponder (AIS) tracking and computer vision. We combine vessel trajectory forecasting with AASHTO bridge impact analysis to continuously assign a threat level to each vessel within 30 nautical miles of the site.</p>
 
-            <p>Roebling Labs LLC has developed the Vessel Collision Warning System so that bridge owners can comply with these NTSB recommendations to protect your traveling public.</p>
+            <p>Roebling Labs have developed an example prototype Vessel Collision Warning System available here: <a href="https://vesselcollision.com" target="_blank" style="color: var(--text-blue); text-decoration: none;">vesselcollision.com</a></p>
 
-            <p>We synthesize, analyze, and assess the data for each detected vessel into a single threat rating.</p>
-
-            <div class="threat-levels">
-                <div class="threat-item">
-                    <div class="threat-dot red"></div>
-                    <div>
-                        <strong style="color: var(--text-white);">ALARM - Urgent Evacuation</strong>
-                        <p>This highest threat level initiates urgent action to evacuate the bridge. Only vessels that imminently threaten the structural integrity of your bridge will result in this highest threat rating. We understand how costly and disruptive false alarms can be. The expected time to evacuate the bridge is site specific and will inform the threshold setting between Orange - ELEVATED MONITORING and Red - ALARM.</p>
-                    </div>
-                </div>
-
-                <div class="threat-item">
-                    <div class="threat-dot orange"></div>
-                    <div>
-                        <strong style="color: var(--text-white);">ELEVATED MONITORING</strong>
-                        <p>This threat category occurs when a high-consequence vessel is approaching the bridge at near range. This is a routine occurrence. Most such vessels safely pass under the bridge within the navigable channel. However, if such a vessel deviates from the navigable channel, has excessive speed, or violates a geo-fenced area, it will be elevated to Red - ALARM status. Our computer-vision system supplements the AIS transponder data when distinguishing the threat level of these high-consequence vessels between Orange - ELEVATED MONITORING and Red - ALARM as they approach. This minimizes the number of false alarms when compared to relying on the AIS transponder data alone.</p>
-                    </div>
-                </div>
-
-                <div class="threat-item">
-                    <div class="threat-dot yellow"></div>
-                    <div>
-                        <strong style="color: var(--text-white);">MONITOR</strong>
-                        <p>This threat category is for a high-consequence vessel that is not approaching the bridge at near range. Vessels in this threat category are sufficiently far from the bridge or headed away from the bridge such that they pose a very low probability of impact. However, they would endanger the structural integrity of the bridge if they did collide at their current speed.</p>
-                    </div>
-                </div>
-
-                <div class="threat-item">
-                    <div class="threat-dot green"></div>
-                    <div>
-                        <strong style="color: var(--text-white);">NEGLIGIBLE THREAT</strong>
-                        <p>This category is for low-consequence vessels that are either stationary, including ships anchored in port, or so small or slow moving that they aren't expected to endanger the structural integrity of the bridge even if they did collide.</p>
-                    </div>
-                </div>
-            </div>
-
-            <p>Your Smart Bridge in a Box™ hardware unit is mounted on your bridge site in a waterproof enclosure and is networked using a wireless modem. It operates remotely and autonomously. It includes an AIS transponder, computer vision system, and wireless modem.</p>
+            <p>The vessel data for the prototype is pulled from AISStream.io and auto-refreshed every 30 minutes for demonstration purposes. Production systems deploy a local AIS receiver at the bridge site for continuous tracking. Our enhanced systems use computer vision for redundancy, protection against attack, and improved incident logs.</p>
         </div>
     </section>
 
