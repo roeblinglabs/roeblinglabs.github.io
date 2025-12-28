@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to the Roebling Labs Blog | Roebling Labs Blog</title>
+    <style>
+        /* Design System Variables */
+        :root {
+            --bg-black: #000000;
+            --text-blue: #0084ff;
+            --text-white: #ffffff;
+            --accent-blue: #4da6ff;
+            --dark-gray: #0a0a0a;
+            --card-bg: #1a1a1a;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg-black);
+            color: var(--text-blue);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--text-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-black);
+            border-bottom: 1px solid var(--dark-gray);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-blue);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+
+        /* Article Styles */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--dark-gray);
+        }
+
+        .article-date {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content {
+            padding-bottom: 2rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--text-blue);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--accent-blue);
+            font-style: italic;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-blue);
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark-gray);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            color: var(--text-white);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+
+            .nav-links {
+                display: none;
+            }
+
+            article {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <img src="../images/Logo-Roebling-Labs.webp" alt="Roebling Labs">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#problem">Problem</a></li>
+                <li><a href="../index.html#solution">Solution</a></li>
+                <li><a href="../index.html#demo">See It In Action</a></li>
+                <li><a href="../index.html#about">About Us</a></li>
+                <li><a href="index.html">Blog</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <a href="index.html" class="back-link">&larr; Back to Blog</a>
+
+            <article>
+                <div class="article-header">
+                    <p class="article-date">December 27, 2025</p>
+                    <h1>Welcome to the Roebling Labs Blog</h1>
+                </div>
+
+                <div class="article-content">
+                    <p>We're excited to launch the Roebling Labs blog. This is where we'll share updates on our vessel collision warning systems, insights from bridge safety research, and news about our deployments across the country.</p>
+
+                    <h2>Why We're Starting This Blog</h2>
+                    <p>The collapse of the Francis Scott Key Bridge on March 26, 2024 was a wake-up call for the bridge industry. When the containership Dali lost power and collided with the bridge, police had only two minutes to close the roadway. Six people lost their lives, and the economic impact reached an estimated $5 billion.</p>
+
+                    <p>In November 2025, the National Transportation Safety Board (NTSB) identified 68 bridges across the United States that are potentially vulnerable to vessel collision risk. They recommended that bridge owners evaluate the need for motorist warning systems capable of activating when a threat is identified.</p>
+
+                    <p>At Roebling Labs, we've been working to develop exactly these kinds of systems. Through this blog, we want to share what we're learning and help bridge owners understand the technology available to protect the traveling public.</p>
+
+                    <h2>What You'll Find Here</h2>
+                    <p>In future posts, we'll cover topics including:</p>
+                    <ul>
+                        <li>How AIS (Automatic Identification System) tracking works for vessel collision warning</li>
+                        <li>The role of computer vision in enhancing bridge safety systems</li>
+                        <li>Case studies from our prototype deployments</li>
+                        <li>Updates on NTSB recommendations and industry standards</li>
+                        <li>Technical deep-dives into threat assessment algorithms</li>
+                    </ul>
+
+                    <h2>Stay Connected</h2>
+                    <p>We invite bridge owners, transportation officials, and anyone interested in bridge safety to follow along. You can <a href="../index.html#contact">subscribe to our newsletter</a> to receive updates when we publish new content.</p>
+
+                    <p>If you have questions or topics you'd like us to cover, please reach out to us at <a href="mailto:scott@roeblinglabs.com">scott@roeblinglabs.com</a>.</p>
+
+                    <p>Thank you for joining us on this journey to make our nation's bridges safer.</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Roebling Labs LLC. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
