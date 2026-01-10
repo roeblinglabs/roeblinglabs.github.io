@@ -171,12 +171,66 @@
             text-decoration: underline;
         }
 
+        /* Newsletter Form */
+        .newsletter-section {
+            background: var(--dark-gray);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .newsletter-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 12px;
+            border: 1px solid var(--text-blue);
+            background: var(--bg-black);
+            color: var(--text-white);
+            border-radius: 5px;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: var(--text-blue);
+            color: var(--text-white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent-blue);
+        }
+
+        #form-success {
+            color: var(--accent-blue);
+            font-weight: bold;
+            margin-top: 1rem;
+            display: none;
+        }
+
         /* Footer */
         footer {
-            background: var(--dark-gray);
+            background: var(--bg-black);
             padding: 2rem 0;
             text-align: center;
-            margin-top: 4rem;
         }
 
         footer p {
@@ -240,11 +294,64 @@
         </div>
     </main>
 
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Newsletter</h2>
+                <p>Get updates on vessel collision warning system deployments and best practices for using computer vision on bridges.</p>
+                <form id="emailSignInForm" action="https://formspree.io/f/xwkgdbvz" method="POST" class="newsletter-form">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe to Newsletter</button>
+                </form>
+                <div id="form-success">Thank you for subscribing! We'll be in touch soon.</div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer>
         <div class="container">
             <p>&copy; 2025 Roebling Labs LLC. All rights reserved.</p>
         </div>
     </footer>
+
+    <script>
+        // Newsletter form submission with Formspree
+        document.getElementById('emailSignInForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const successMessage = document.getElementById('form-success');
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show success message
+                    form.reset();
+                    successMessage.style.display = 'block';
+
+                    // Hide success message after 5 seconds
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+
+                    return response.json();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem submitting your form. Please try again.');
+            });
+        });
+    </script>
 </body>
 </html>
