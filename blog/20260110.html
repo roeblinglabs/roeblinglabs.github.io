@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Roebling Labs</title>
+    <title>Introducing Roebling Labs | Roebling Labs Blog</title>
     <style>
         /* Design System Variables */
         :root {
@@ -26,7 +26,7 @@
             font-family: Arial, sans-serif;
             background: var(--bg-black);
             color: var(--text-blue);
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         .container {
@@ -37,23 +37,33 @@
 
         /* Typography */
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: var(--text-blue);
             margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--text-blue);
-            margin-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
         p {
             font-size: 1.1rem;
             color: var(--text-white);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         a {
@@ -109,66 +119,64 @@
             min-height: 100vh;
         }
 
-        .blog-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .blog-header p {
-            color: var(--accent-blue);
-            font-size: 1.2rem;
-        }
-
-        /* Blog Post Cards */
-        .blog-posts {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        /* Article Styles */
+        article {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .blog-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            border: 1px solid var(--dark-gray);
-            transition: border-color 0.3s;
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--dark-gray);
         }
 
-        .blog-card:hover {
-            border-color: var(--text-blue);
-        }
-
-        .blog-card h2 a {
-            color: var(--text-blue);
-            text-decoration: none;
-        }
-
-        .blog-card h2 a:hover {
+        .article-date {
             color: var(--accent-blue);
-        }
-
-        .blog-date {
-            color: var(--accent-blue);
-            font-size: 0.9rem;
+            font-size: 1rem;
             margin-bottom: 1rem;
         }
 
-        .blog-excerpt {
+        .article-content {
+            padding-bottom: 2rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
             color: var(--text-white);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
         }
 
-        .read-more {
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--text-blue);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--accent-blue);
+            font-style: italic;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
             color: var(--text-blue);
             font-weight: bold;
-            text-decoration: none;
         }
 
-        .read-more:hover {
+        .back-link:hover {
             color: var(--accent-blue);
-            text-decoration: underline;
         }
 
         /* Newsletter Form */
@@ -240,15 +248,16 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2rem; }
             h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
 
             .nav-links {
                 display: none;
             }
 
-            .blog-card {
-                padding: 1.5rem;
+            article {
+                padding: 0 10px;
             }
         }
     </style>
@@ -275,22 +284,59 @@
     <!-- Main Content -->
     <main>
         <div class="container">
-            <div class="blog-header">
-                <h1>Blog</h1>
-                <p>Updates on vessel collision warning systems and bridge safety</p>
-            </div>
+            <a href="index.html" class="back-link">&larr; Back to Blog</a>
 
-            <div class="blog-posts">
-                <!-- Blog Post 1 -->
-                <article class="blog-card">
-                    <h2><a href="20260110.html">Introducing Roebling Labs</a></h2>
-                    <p class="blog-date">10 January 2026</p>
-                    <p class="blog-excerpt">Roebling Labs builds vessel collision warning systems for vulnerable bridges. That's it. Our company is 100% devoted to solving this problem.</p>
-                    <a href="20260110.html" class="read-more">Read more &rarr;</a>
-                </article>
+            <article>
+                <div class="article-header">
+                    <p class="article-date">10 January 2026</p>
+                    <h1>Introducing Roebling Labs</h1>
+                </div>
 
-                <!-- Add more blog posts here -->
-            </div>
+                <div class="article-content">
+                    <p>Roebling Labs builds vessel collision warning systems for vulnerable bridges. That's it. Our company is 100% devoted to solving this problem.</p>
+
+                    <p>The Francis Scott Key Bridge collapse led to an NTSB investigation. The NTSB got our attention on 18 November 2025 when they voted to recommend that federal agencies research if it would be feasible to create collision warning systems on vulnerable bridges. NTSB initially named 68 bridges in the U.S. that face similar risk profiles—built before 1991 over waterways navigable by ocean-going vessels. (The list has since been whittled to 46 vulnerable bridges.)</p>
+
+                    <p>We didn't need research. We knew that we could build it. Quickly.</p>
+
+                    <h2>How we got here</h2>
+
+                    <p>Roebling Labs wasn't founded to build collision warning systems. I started the company almost two years ago with a broader mission: build bridge assessment tools for bridge owners. We initially focused on structural health monitoring because existing solutions were expensive and had failed to become practical tools for everyday bridge management.</p>
+
+                    <p>We tried several approaches:</p>
+                    <ul>
+                        <li>A smartphone app to measure bridge vibrations</li>
+                        <li>A dashboard for crowdsourced bridge monitoring using vehicle accelerometer data</li>
+                        <li>Computer vision bridge monitoring</li>
+                    </ul>
+
+                    <p>Then we saw the NTSB recommendations following the Key Bridge collapse investigation.</p>
+
+                    <p>Suddenly we had an urgent problem, a defined market, and a clear technical path. We pivoted.</p>
+
+                    <p>Within weeks we had working prototypes for real-time threat ranking of vessels. We combine AIS vessel transponder data with trajectory forecasting and AASHTO impact analysis.</p>
+
+                    <p>We may come back to computer vision for bridge monitoring in the future. As costs fall and capabilities rise, this technology presents exciting opportunities.</p>
+
+                    <p>But, right now, vessel collision warning is where Roebling Labs can make the biggest difference. We are all in.</p>
+
+                    <h2>Next Steps</h2>
+
+                    <p>We've built a working hardware + software prototype.</p>
+
+                    <p>Our next step is to deploy our prototype into the field and get feedback.</p>
+
+                    <p>We procured a waterfront location to deploy our hardware at the Chelsea Yacht Club next to the Tobin Bridge and near our offices in Cambridge, MA.</p>
+
+                    <p>We met with chief engineers at owner agencies with bridges on the NTSB vulnerable list and hope to pilot our technology with them soon.</p>
+
+                    <p>These pilot projects will take our prototype to be an operational life-safety system over the coming months.</p>
+
+                    <p>Follow our progress. Subscribe below.</p>
+
+                    <p>If you are an engineer that works with a vulnerable bridge, please contact <a href="mailto:scott@roeblinglabs.com">scott@roeblinglabs.com</a> to learn how to deploy our solution at your site.</p>
+                </div>
+            </article>
         </div>
     </main>
 
