@@ -140,6 +140,31 @@
             border-color: var(--text-blue);
         }
 
+        .blog-card-content {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .blog-card-image {
+            flex-shrink: 0;
+            width: 200px;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        .blog-card-text {
+            flex: 1;
+        }
+
+        .blog-card h2 {
+            margin-top: 0;
+        }
+
         .blog-card h2 a {
             color: var(--text-blue);
             text-decoration: none;
@@ -161,6 +186,7 @@
         }
 
         .read-more {
+            display: block;
             color: var(--text-blue);
             font-weight: bold;
             text-decoration: none;
@@ -283,10 +309,16 @@
             <div class="blog-posts">
                 <!-- Blog Post 1 -->
                 <article class="blog-card">
-                    <a href="20260110.html"><img src="../images/Venn2-Roebling-Jan2026.png" alt="Roebling Labs Venn Diagram" style="width: 100%; max-width: 400px; height: auto; border-radius: 8px; margin-bottom: 1rem;"></a>
-                    <h2><a href="20260110.html">What is Roebling Labs?</a></h2>
-                    <p class="blog-date">10 January 2026</p>
-                    <p class="blog-excerpt">Roebling Labs builds vessel collision warning systems for vulnerable bridges. That's it. Our company is 100% devoted to solving this problem.</p>
+                    <div class="blog-card-content">
+                        <div class="blog-card-image">
+                            <a href="20260110.html"><img src="../images/Venn2-Roebling-Jan2026.png" alt="Roebling Labs Venn Diagram"></a>
+                        </div>
+                        <div class="blog-card-text">
+                            <h2><a href="20260110.html">What is Roebling Labs?</a></h2>
+                            <p class="blog-date">10 January 2026</p>
+                            <p class="blog-excerpt">Roebling Labs builds vessel collision warning systems for vulnerable bridges. That's it. Our company is 100% devoted to solving this problem.</p>
+                        </div>
+                    </div>
                     <a href="20260110.html" class="read-more">Read more &rarr;</a>
                 </article>
 
