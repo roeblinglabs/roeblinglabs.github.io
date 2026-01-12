@@ -396,30 +396,36 @@
         <div class="container">
             <h2>Solution</h2>
 
-            <p>Roebling Labs protects bridge users from vessel collision using real-time transponder (AIS) tracking and computer vision. We combine vessel trajectory forecasting with AASHTO bridge impact analysis to continuously assign a threat level to each vessel within 30 nautical miles of the site.</p>
+            <p>Roebling Labs builds vessel collision warning systems for vulnerable bridges.</p>
 
-            <p>Roebling Labs has developed a prototype Vessel Collision Warning System available here: <a href="https://chesapeake-bay-bridges-ship.up.railway.app/" target="_blank" style="color: var(--text-blue); text-decoration: none;">vesselcollision.com</a></p>
+            <p>We alert bridge owners when to operate their traffic gates by continuously assigning threat levels to each vessel. We combine real-time transponder (AIS) data with trajectory forecasting and AASHTO impact analysis.</p>
 
-            <p>The vessel data for the prototype is pulled from AISStream.io and auto-refreshed every 30 minutes for demonstration purposes. Production systems deploy a local AIS receiver at the bridge site for continuous tracking. Enhanced systems use computer vision for redundancy, protection against attack, and incident logging. In the case of false alarms, feedback from the computer vision incident logs facilitate reinforcement learning to update the threat assessment algorithm.</p>
-        </div>
-    </section>
+            <h3 style="margin-top: 2rem;">How we track vessels</h3>
 
-    <!-- 4. Demo Section -->
-    <section id="demo" class="dark-section">
-        <div class="container">
-            <h2>See It In Action</h2>
+            <p>Automatic Identification System (AIS) transponders have been required by the U.S. Coast Guard since 2002 for self-propelled vessels over 65 feet long, towing vessels over 26 feet long, and all passenger vessels. This mandate covers the types of vessels that pose collision risk to bridges, with the exception of loose barges and acts of war or terrorism.</p>
 
-            <a href="https://chesapeake-bay-bridges-ship.up.railway.app/" target="_blank"><img src="images/vessel-collision-demo.png" alt="Example Vessel Collision Warning System by Roebling Labs" class="content-image"></a>
-            <p style="text-align: center; font-size: 0.9rem; color: var(--text-white); margin-bottom: 2rem;">Figure 1: Screenshot of an example vessel collision warning system by Roebling Labs</p>
+            <p>Optional computer vision enhancement provides redundancy, protection from spoofing, and incident logging.</p>
+
+            <h3 style="margin-top: 2rem;">How we perform threat assessment</h3>
+
+            <p>We continuously rank each vessel within 30 nautical miles by probability and consequence of collision.</p>
+
+            <ul style="list-style: none; padding: 0; margin: 1rem 0;">
+                <li style="margin-bottom: 0.5rem;"><span style="color: #888888; font-weight: bold;">[Grey]</span> Negligible Threat — Small vessel unable to damage the bridge</li>
+                <li style="margin-bottom: 0.5rem;"><span style="color: #22c55e; font-weight: bold;">[Green]</span> Monitor — Vessel operating normally within navigation channel</li>
+                <li style="margin-bottom: 0.5rem;"><span style="color: #eab308; font-weight: bold;">[Yellow]</span> Caution — Unexpected trajectory; time to contact vessel captain</li>
+                <li style="margin-bottom: 0.5rem;"><span style="color: #ef4444; font-weight: bold;">[Red]</span> Alarm — Collision course; close gates and evacuate bridge</li>
+                <li style="margin-bottom: 0.5rem;"><span style="color: #a855f7; font-weight: bold;">[Purple]</span> Collision Detected — Possible structural damage; inspect before reopening</li>
+            </ul>
 
             <img src="images/Risk-Matrix-v4.png" alt="Risk Matrix for Assessing Vessel Threat" class="content-image">
-            <p style="text-align: center; font-size: 0.9rem; color: var(--text-white); margin-bottom: 2rem;">Figure 2: Risk Matrix for Assessing Vessel Threat</p>
+            <p style="text-align: center; font-size: 0.9rem; color: #666; margin-bottom: 2rem;">Figure 2: Risk Matrix for Assessing Vessel Threat</p>
 
             <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Resources</h3>
             <ul style="list-style: none; padding: 0; margin-bottom: 2rem;">
-                <li style="margin-bottom: 0.75rem;"><a href="images/User-Manual-Bridge-Vessel-Collision-Warning-Dec2025.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-blue); text-decoration: underline;">User Manual (PDF)</a> <span style="color: var(--text-white);">— Annotated screenshots explaining how the system protects bridge users</span></li>
-                <li style="margin-bottom: 0.75rem;"><a href="images/1Pager-RoeblingLabs-07Jan2026.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-blue); text-decoration: underline;">One-Page Brochure (PDF)</a> <span style="color: var(--text-white);">— Share with your team</span></li>
-                <li style="margin-bottom: 0.75rem;"><a href="https://chesapeake-bay-bridges-ship.up.railway.app/" target="_blank" style="color: var(--text-blue); text-decoration: underline;">Browse the Dashboard</a> <span style="color: var(--text-white);">— Explore the interface yourself (demo data)</span></li>
+                <li style="margin-bottom: 0.75rem;"><a href="images/User-Manual-Bridge-Vessel-Collision-Warning-Dec2025.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-blue); text-decoration: underline;">User Manual (PDF)</a> — Annotated screenshots explaining how the system protects bridge users</li>
+                <li style="margin-bottom: 0.75rem;"><a href="images/1Pager-RoeblingLabs-07Jan2026.pdf" target="_blank" rel="noopener noreferrer" style="color: var(--text-blue); text-decoration: underline;">One-Page Brochure (PDF)</a> — Share with your team</li>
+                <li style="margin-bottom: 0.75rem;"><a href="https://chesapeake-bay-bridges-ship.up.railway.app/" target="_blank" style="color: var(--text-blue); text-decoration: underline;">Browse the Dashboard</a> — Explore the interface yourself (demo data)</li>
             </ul>
 
             <h3 style="margin-bottom: 1rem;">Want a walkthrough?</h3>
