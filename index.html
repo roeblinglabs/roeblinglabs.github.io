@@ -387,7 +387,7 @@
 
             <p>Standards for installing traffic gates are well established at movable bridges, for example. This NTSB recommendation calls for traffic gates to be retrofitted to existing, vulnerable long-span bridges.</p>
 
-            <p>However, no automated vessel collision warning systems were available to alert bridge owners when to operate the traffic gates.</p>
+            <p>However, prior to Roebling Labs' solution, no systems were available to identify vessel collision threats and alert owners when to operate the traffic gates on their vulnerable, long-span bridges.</p>
         </div>
     </section>
 
@@ -400,12 +400,18 @@
 
             <p>We alert bridge owners when to operate their traffic gates by continuously assigning threat levels to each vessel. We combine real-time transponder (AIS) data with trajectory forecasting and AASHTO impact analysis.</p>
 
-            <h3 style="margin-top: 2rem;">How we track vessels</h3>
-
-            <p>Our system receives AIS signals broadcast from each vessel that include identity, size, speed, position, and heading. The U.S. Coast Guard has required AIS transponders since 2002 for self-propelled vessels over 65 feet long, towing vessels over 26 feet long, and all passenger vessels. This mandate covers the types of vessels that pose collision risk to bridges, with the exception of loose barges and acts of war or terrorism.</p>
+            <h3 style="margin-top: 2rem;">How your vessel collision warning system works</h3>
 
             <img src="images/conceptual-schematic.png" alt="Conceptual Schematic" class="content-image">
             <p style="text-align: center; font-size: 0.9rem; color: white; margin-bottom: 2rem;">Figure 2: Conceptual Schematic of Vessel Collision Warning System</p>
+
+            <ol style="margin: 1rem 0 1rem 2rem; color: white;">
+                <li style="margin-bottom: 0.75rem;"><strong>Ship:</strong> Vessels send AIS signals of name, type, size, position, speed, and heading, per U.S. Coast Guard requirements since 2002.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Bridge:</strong> Roebling Labs' box continuously receives AIS signals, filters, and sends relevant data to the cloud.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Cloud:</strong> Roebling Labs' cloud receives the data, continuously runs our threat assessment algorithm, and transmits alarms instantaneously. Important data is stored to investigate incidents and back-test threat algorithm edits.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Operations Center:</strong> Staff receive Roebling Labs' alerts via browser-based dashboard, API software integration, SMS message, automated phone call, and/or email.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Traffic Gates & Marine Radio:</strong> Bridge operations staff respond to alerts as appropriate to communicate with vessels and close and open traffic gates.</li>
+            </ol>
 
             <p>Optional computer vision enhancement provides redundancy, protection from spoofing, and incident logging.</p>
 
