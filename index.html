@@ -398,7 +398,7 @@
 
             <p>Roebling Labs builds vessel collision warning systems for vulnerable bridges.</p>
 
-            <p>We alert bridge owners when to operate their traffic gates by continuously assigning threat levels to each vessel. We combine real-time transponder (AIS) data with trajectory forecasting and AASHTO impact analysis.</p>
+            <p>The system assigns threat levels to AIS-equipped vessels by combining real-time transponder tracking, trajectory forecasting, and AASHTO impact analysis.</p>
 
             <h3 style="margin-top: 2rem;">How your vessel collision warning system works</h3>
 
@@ -407,13 +407,15 @@
 
             <ol style="margin: 1rem 0 1rem 2rem; color: white;">
                 <li style="margin-bottom: 0.75rem;"><strong>Ship:</strong> Vessels send AIS signals of identification, size, position, speed, and heading, per U.S. Coast Guard requirements since 2002.</li>
-                <li style="margin-bottom: 0.75rem;"><strong>Bridge:</strong> Roebling Labs' box continuously receives AIS signals, filters, and sends relevant data to the cloud.</li>
-                <li style="margin-bottom: 0.75rem;"><strong>Cloud:</strong> Roebling Labs' cloud receives the data, continuously runs our threat assessment algorithm, and transmits alerts instantaneously. Important data is stored to investigate incidents and back-test threat algorithm edits.</li>
-                <li style="margin-bottom: 0.75rem;"><strong>Operations Center:</strong> Staff receive Roebling Labs' alerts via browser-based dashboard, API software integration, SMS message, automated phone call, and/or email.</li>
-                <li style="margin-bottom: 0.75rem;"><strong>Traffic Gates & Marine Radio:</strong> Bridge operations staff respond to alerts as appropriate to communicate with vessels and close and open traffic gates.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Bridge:</strong> Roebling Labs' box receives AIS signals, filters, and sends relevant data to the cloud.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Cloud:</strong> Roebling Labs' cloud receives the data in real-time, runs our threat assessment algorithm, and transmits alerts when risk scenarios are detected. Important data is stored to investigate incidents and improve algorithm performance.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Operations Center:</strong> Staff receive Roebling Labs' alerts via browser-based dashboard, API software integration, SMS message, or phone.</li>
+                <li style="margin-bottom: 0.75rem;"><strong>Traffic Gates & Marine Radio:</strong> Bridge operations staff evaluate and respond to alerts as appropriate to communicate with vessels and close and open traffic gates.</li>
             </ol>
 
-            <p>Optional computer vision enhancement provides redundancy, protection from spoofing, and incident logging.</p>
+            <p style="color: white; font-style: italic;">Note: Roebling Labs' system provides risk information on AIS-equipped vessels to support decisions by bridge operators.</p>
+
+            <p>Optional computer vision enhancement adds visual verification of vessel data and detection of non-AIS vessels, such as a loose barge. Visual recordings support post-incident investigation and improvement of the threat assessment algorithm.</p>
 
             <h3 style="margin-top: 2rem;">How we perform threat assessment</h3>
 
