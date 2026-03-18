@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog | Roebling Labs</title>
+    <title>Chesapeake Bay Field Data | Roebling Labs Blog</title>
     <style>
         /* Design System Variables */
         :root {
@@ -26,7 +26,7 @@
             font-family: Arial, sans-serif;
             background: var(--bg-black);
             color: var(--text-blue);
-            line-height: 1.6;
+            line-height: 1.8;
         }
 
         .container {
@@ -37,23 +37,33 @@
 
         /* Typography */
         h1 {
-            font-size: 3rem;
+            font-size: 2.5rem;
             font-weight: bold;
             color: var(--text-blue);
             margin-bottom: 1rem;
+            line-height: 1.3;
         }
 
         h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             color: var(--text-blue);
-            margin-bottom: 0.5rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
         }
 
         p {
             font-size: 1.1rem;
             color: var(--text-white);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
         }
 
         a {
@@ -109,92 +119,64 @@
             min-height: 100vh;
         }
 
-        .blog-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .blog-header p {
-            color: var(--accent-blue);
-            font-size: 1.2rem;
-        }
-
-        /* Blog Post Cards */
-        .blog-posts {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
+        /* Article Styles */
+        article {
             max-width: 800px;
             margin: 0 auto;
         }
 
-        .blog-card {
-            background: var(--card-bg);
-            border-radius: 8px;
-            padding: 2rem;
-            border: 1px solid var(--dark-gray);
-            transition: border-color 0.3s;
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--dark-gray);
         }
 
-        .blog-card:hover {
-            border-color: var(--text-blue);
+        .article-date {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            margin-bottom: 1rem;
         }
 
-        .blog-card-content {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
+        .article-content {
+            padding-bottom: 2rem;
         }
 
-        .blog-card-image {
-            flex-shrink: 0;
-            width: 200px;
+        .article-content ul,
+        .article-content ol {
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
         }
 
-        .blog-card-image img {
-            width: 100%;
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--text-blue);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--accent-blue);
+            font-style: italic;
+        }
+
+        .article-content img {
+            max-width: 100%;
             height: auto;
             border-radius: 8px;
+            margin: 1.5rem 0;
         }
 
-        .blog-card-text {
-            flex: 1;
-        }
-
-        .blog-card h2 {
-            margin-top: 0;
-        }
-
-        .blog-card h2 a {
-            color: var(--text-blue);
-            text-decoration: none;
-        }
-
-        .blog-card h2 a:hover {
-            color: var(--accent-blue);
-        }
-
-        .blog-date {
-            color: var(--accent-blue);
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .blog-excerpt {
-            color: var(--text-white);
-            margin-bottom: 1rem;
-        }
-
-        .read-more {
-            display: block;
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
             color: var(--text-blue);
             font-weight: bold;
-            text-decoration: none;
         }
 
-        .read-more:hover {
+        .back-link:hover {
             color: var(--accent-blue);
-            text-decoration: underline;
         }
 
         /* Newsletter Form */
@@ -266,15 +248,16 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            h1 { font-size: 2.5rem; }
+            h1 { font-size: 2rem; }
             h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
 
             .nav-links {
                 display: none;
             }
 
-            .blog-card {
-                padding: 1.5rem;
+            article {
+                padding: 0 10px;
             }
         }
     </style>
@@ -301,89 +284,28 @@
     <!-- Main Content -->
     <main>
         <div class="container">
-            <div class="blog-header">
-                <h1>Blog</h1>
-                <p>Follow our journey.</p>
-            </div>
+            <a href="index.html" class="back-link">&larr; Back to Blog</a>
 
-            <div class="blog-posts">
-                <!-- Blog Post 4 -->
-                <article class="blog-card">
-                    <div class="blog-card-content">
-                        <div class="blog-card-image">
-                            <a href="20260318.html"><img src="../images/IMG_1688.jpg" alt="Chesapeake Bay field data collection"></a>
-                        </div>
-                        <div class="blog-card-text">
-                            <h2><a href="20260318.html">Chesapeake Bay Field Data</a></h2>
-                            <p class="blog-date">18 March 2026</p>
-                            <p class="blog-excerpt">The Chesapeake Bay is one of the busiest commercial waterways in the country and home to some of the most consequential bridges in the Mid-Atlantic. Roebling Labs is collecting real-world field data here to validate our vessel collision warning algorithms.</p>
-                        </div>
-                    </div>
-                    <a href="20260318.html" class="read-more">Read more &rarr;</a>
-                </article>
+            <article>
+                <div class="article-header">
+                    <p class="article-date">18 March 2026</p>
+                    <h1>Chesapeake Bay Field Data</h1>
+                </div>
 
-                <!-- Blog Post 3 -->
-                <article class="blog-card">
-                    <div class="blog-card-content">
-                        <div class="blog-card-image">
-                            <a href="20260316.html"><img src="https://img.youtube.com/vi/U3S45U_9Z9M/maxresdefault.jpg" alt="Interview with MGMT Boston"></a>
-                        </div>
-                        <div class="blog-card-text">
-                            <h2><a href="20260316.html">Interview with MGMT</a></h2>
-                            <p class="blog-date">16 March 2026</p>
-                            <p class="blog-excerpt">When a ship risks collision with a bridge, every second counts. Grateful to be featured by Matt Crane of MGMT Boston alongside other Engine founders — my segment starts at the 5-minute mark.</p>
-                        </div>
-                    </div>
-                    <a href="20260316.html" class="read-more">Read more &rarr;</a>
-                </article>
+                <div class="article-content">
+                    <img src="../images/IMG_1688.jpg" alt="Chesapeake Bay field data collection" style="max-width: 100%; height: auto; display: block; margin: 0 auto 2rem;">
 
-                <!-- Blog Post 2 -->
-                <article class="blog-card">
-                    <div class="blog-card-content">
-                        <div class="blog-card-image">
-                            <a href="20260225.html"><img src="Tobin-Bridge-Deployment.jpeg" alt="Tobin Bridge deployment photo"></a>
-                        </div>
-                        <div class="blog-card-text">
-                            <h2><a href="20260225.html">Three Blizzards and Counting</a></h2>
-                            <p class="blog-date">25 February 2026</p>
-                            <p class="blog-excerpt">Our vessel collision warning system has been running live at a site adjacent to the Tobin Bridge in Boston through three blizzards — combining real-time AIS vessel tracking, trajectory forecasting, and AASHTO impact analysis.</p>
-                        </div>
-                    </div>
-                    <a href="20260225.html" class="read-more">Read more &rarr;</a>
-                </article>
+                    <p>The Chesapeake Bay is one of the busiest commercial waterways in the country and home to some of the most consequential bridges in the Mid-Atlantic.</p>
 
-                <!-- Blog Post 1 -->
-                <article class="blog-card">
-                    <div class="blog-card-content">
-                        <div class="blog-card-image">
-                            <a href="20260110.html"><img src="../images/Venn2-Roebling-Jan2026.png" alt="Roebling Labs Venn Diagram"></a>
-                        </div>
-                        <div class="blog-card-text">
-                            <h2><a href="20260110.html">What is Roebling Labs?</a></h2>
-                            <p class="blog-date">10 January 2026</p>
-                            <p class="blog-excerpt">Roebling Labs builds vessel collision warning systems for vulnerable bridges. That's it. Our company is 100% devoted to solving this problem.</p>
-                        </div>
-                    </div>
-                    <a href="20260110.html" class="read-more">Read more &rarr;</a>
-                </article>
+                    <p>Roebling Labs is collecting real-world field data here to validate our vessel collision warning algorithms against live marine traffic.</p>
 
-                <!-- Blog Post 0 -->
-                <article class="blog-card">
-                    <div class="blog-card-content">
-                        <div class="blog-card-image">
-                            <a href="20251125.html"><img src="dali-bridge-collision.png" alt="Dali vessel collision with Francis Scott Key Bridge"></a>
-                        </div>
-                        <div class="blog-card-text">
-                            <h2><a href="20251125.html">Vessel Collision Monitoring for Vulnerable Bridges</a></h2>
-                            <p class="blog-date">25 November 2025</p>
-                            <p class="blog-excerpt">The collapse of the Francis Scott Key Bridge cost 6 lives and an estimated $5 Billion. NTSB flagged 68 bridges across the U.S. as potentially vulnerable and recommended vessel collision monitoring systems. Roebling Labs has responded.</p>
-                        </div>
-                    </div>
-                    <a href="20251125.html" class="read-more">Read more &rarr;</a>
-                </article>
+                    <p>Our system is already operational near the Tobin Bridge in Boston. The Chesapeake Bay work builds on that foundation.</p>
 
-                <!-- Add more blog posts here -->
-            </div>
+                    <p>45 U.S. bridges are identified by the NTSB as potentially vulnerable to catastrophic vessel collision. We're working to give the agencies who manage them the real-time information that they need to act.</p>
+
+                    <p>If you manage a vulnerable bridge, or work with those that do, let's talk.</p>
+                </div>
+            </article>
         </div>
     </main>
 
@@ -424,11 +346,9 @@
             })
             .then(response => {
                 if (response.ok) {
-                    // Show success message
                     form.reset();
                     successMessage.style.display = 'block';
 
-                    // Hide success message after 5 seconds
                     setTimeout(function() {
                         successMessage.style.display = 'none';
                     }, 5000);
