@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilot Deployment at Rip Van Winkle Bridge | Roebling Labs Blog</title>
+    <style>
+        /* Design System Variables */
+        :root {
+            --bg-black: #000000;
+            --text-blue: #0084ff;
+            --text-white: #ffffff;
+            --accent-blue: #4da6ff;
+            --dark-gray: #0a0a0a;
+            --card-bg: #1a1a1a;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg-black);
+            color: var(--text-blue);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--text-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-black);
+            border-bottom: 1px solid var(--dark-gray);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-blue);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+
+        /* Article Styles */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--dark-gray);
+        }
+
+        .article-date {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content {
+            padding-bottom: 2rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--text-blue);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--accent-blue);
+            font-style: italic;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-blue);
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Newsletter Form */
+        .newsletter-section {
+            background: var(--dark-gray);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .newsletter-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 12px;
+            border: 1px solid var(--text-blue);
+            background: var(--bg-black);
+            color: var(--text-white);
+            border-radius: 5px;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: var(--text-blue);
+            color: var(--text-white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent-blue);
+        }
+
+        #form-success {
+            color: var(--accent-blue);
+            font-weight: bold;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-black);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-white);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+
+            .nav-links {
+                display: none;
+            }
+
+            article {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <img src="../images/Logo-Roebling-Labs.webp" alt="Roebling Labs">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#problem">Problem</a></li>
+                <li><a href="../index.html#solution">Solution</a></li>
+                <li><a href="../index.html#demo">Case Study</a></li>
+                <li><a href="../index.html#about">About Us</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="index.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <a href="index.html" class="back-link">&larr; Back to Blog</a>
+
+            <article>
+                <div class="article-header">
+                    <p class="article-date">16 April 2026</p>
+                    <h1>Pilot Deployment at Rip Van Winkle Bridge</h1>
+                </div>
+
+                <div class="article-content">
+                    <p>In continued partnership with New York State Bridge Authority (NYSBA), Roebling Labs deployed a vessel collision warning system today at the Rip Van Winkle Bridge over the Hudson River.</p>
+
+                    <p>This follows on the successful deployment at NYSBA's two Newburgh-Beacon Bridges over the Hudson River two weeks ago.</p>
+
+                    <p>Roebling Labs assigns threat levels to AIS-equipped vessels by combining real-time transponder tracking, trajectory forecasting, and AASHTO impact analysis.</p>
+
+                    <img src="../images/RipVanWinkleBridge-April2026.jpeg" alt="Rip Van Winkle Bridge over the Hudson River" style="max-width: 100%; height: auto; display: block; margin: 0 auto 0;">
+                    <p style="text-align: center; font-size: 0.9rem; color: var(--accent-blue); margin-top: 0.5rem; margin-bottom: 2rem;">Rip Van Winkle Bridge over the Hudson River</p>
+
+                    <img src="../images/RipVanWinkleBridge-Box-April2026.jpeg" alt="Installation team at Rip Van Winkle Bridge with vessel collision warning system hardware" style="max-width: 100%; height: auto; display: block; margin: 0 auto 0;">
+                    <p style="text-align: center; font-size: 0.9rem; color: var(--accent-blue); margin-top: 0.5rem; margin-bottom: 2rem;">Installation Team at Rip Van Winkle Bridge with vessel collision warning system hardware</p>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <form id="emailSignInForm" action="https://formspree.io/f/xwkgdbvz" method="POST" class="newsletter-form">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe to Newsletter</button>
+                </form>
+                <div id="form-success">Thank you for subscribing! We'll be in touch soon.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Follow our journey.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter form submission with Formspree
+        document.getElementById('emailSignInForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const successMessage = document.getElementById('form-success');
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    form.reset();
+                    successMessage.style.display = 'block';
+
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+
+                    return response.json();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem submitting your form. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
