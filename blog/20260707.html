@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literature Review: Vessel Collision with Bridges | Roebling Labs Blog</title>
+    <meta name="description" content="The reference material behind Roebling Labs' IBC-26-56 paper: NTSB investigations and safety recommendations, FHWA and AASHTO guidance, and international sources on vessel collision with bridges and motorist warning systems.">
+    <link rel="canonical" href="https://www.roeblinglabs.com/blog/20260707.html">
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Roebling Labs Blog">
+    <meta property="og:title" content="Literature Review: Vessel Collision with Bridges">
+    <meta property="og:description" content="The reference material behind Roebling Labs' IBC-26-56 paper: NTSB, FHWA, AASHTO, and international sources on vessel collision with bridges and motorist warning systems.">
+    <meta property="og:url" content="https://www.roeblinglabs.com/blog/20260707.html">
+    <meta property="og:image" content="https://www.roeblinglabs.com/blog/IBC-26-56-cover.jpg">
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Literature Review: Vessel Collision with Bridges">
+    <meta name="twitter:description" content="The reference material behind Roebling Labs' IBC-26-56 paper: NTSB, FHWA, AASHTO, and international sources on vessel collision with bridges and motorist warning systems.">
+    <meta name="twitter:image" content="https://www.roeblinglabs.com/blog/IBC-26-56-cover.jpg">
+    <style>
+        /* Design System Variables */
+        :root {
+            --bg-black: #000000;
+            --text-blue: #0084ff;
+            --text-white: #ffffff;
+            --accent-blue: #4da6ff;
+            --dark-gray: #0a0a0a;
+            --card-bg: #1a1a1a;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: var(--bg-black);
+            color: var(--text-blue);
+            line-height: 1.8;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: var(--text-blue);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+        }
+
+        a {
+            color: var(--text-blue);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Header */
+        header {
+            background: var(--bg-black);
+            border-bottom: 1px solid var(--dark-gray);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo img {
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-blue);
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 120px;
+            min-height: 100vh;
+        }
+
+        /* Article Styles */
+        article {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .article-header {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--dark-gray);
+        }
+
+        .article-date {
+            color: var(--accent-blue);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .article-content {
+            padding-bottom: 2rem;
+        }
+
+        .article-content ul,
+        .article-content ol {
+            color: var(--text-white);
+            margin-bottom: 1.5rem;
+            padding-left: 2rem;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .article-content blockquote {
+            border-left: 4px solid var(--text-blue);
+            padding-left: 1.5rem;
+            margin: 1.5rem 0;
+            color: var(--accent-blue);
+            font-style: italic;
+        }
+
+        .article-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+
+        /* Literature Review Table
+           (reuses the design-system variables above; kept minimal and scoped
+           so the dense four-column table renders and scrolls on small screens) */
+        .lit-table-wrapper {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            margin: 2rem 0;
+            border: 1px solid var(--dark-gray);
+            border-radius: 8px;
+        }
+
+        .lit-table {
+            width: 100%;
+            min-width: 900px;
+            border-collapse: collapse;
+        }
+
+        .lit-table th,
+        .lit-table td {
+            border: 1px solid var(--dark-gray);
+            padding: 0.85rem 0.9rem;
+            vertical-align: top;
+            text-align: left;
+        }
+
+        .lit-table thead th {
+            background: var(--card-bg);
+            color: var(--text-blue);
+            font-size: 1rem;
+        }
+
+        .lit-table td {
+            color: var(--text-white);
+            font-size: 0.95rem;
+        }
+
+        .lit-table col.col-references { width: 30%; }
+        .lit-table col.col-by { width: 13%; }
+        .lit-table col.col-year { width: 8%; }
+        .lit-table col.col-notes { width: 49%; }
+
+        .lit-table td.year { white-space: nowrap; }
+
+        .lit-table p {
+            color: var(--text-white);
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.75rem;
+        }
+
+        .lit-table p:last-child {
+            margin-bottom: 0;
+        }
+
+        .lit-table ul {
+            margin: 0.5rem 0 0.75rem;
+            padding-left: 1.4rem;
+            color: var(--text-white);
+        }
+
+        .lit-table li {
+            margin-bottom: 0.35rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .lit-table a {
+            color: var(--text-blue);
+        }
+
+        .lit-table a:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Back Link */
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--text-blue);
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Newsletter Form */
+        .newsletter-section {
+            background: var(--dark-gray);
+            padding: 3rem 0;
+            margin-top: 4rem;
+        }
+
+        .newsletter-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .newsletter-form {
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .newsletter-form input[type="email"] {
+            padding: 12px;
+            border: 1px solid var(--text-blue);
+            background: var(--bg-black);
+            color: var(--text-white);
+            border-radius: 5px;
+            width: 300px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 12px 30px;
+            background: var(--text-blue);
+            color: var(--text-white);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .newsletter-form button:hover {
+            background: var(--accent-blue);
+        }
+
+        #form-success {
+            color: var(--accent-blue);
+            font-weight: bold;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--bg-black);
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-white);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+            h3 { font-size: 1.2rem; }
+
+            .nav-links {
+                display: none;
+            }
+
+            article {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="../index.html" class="logo">
+                <img src="../images/Logo-Roebling-Labs.webp" alt="Roebling Labs">
+            </a>
+            <ul class="nav-links">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#problem">Problem</a></li>
+                <li><a href="../index.html#solution">Solution</a></li>
+                <li><a href="../index.html#demo">Case Study</a></li>
+                <li><a href="../index.html#about">About Us</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+                <li><a href="index.html">Blog</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <a href="index.html" class="back-link">&larr; Back to Blog</a>
+
+            <article>
+                <div class="article-header">
+                    <p class="article-date">7 July 2026</p>
+                    <h1>Literature Review: Vessel Collision with Bridges</h1>
+                </div>
+
+                <div class="article-content">
+                    <p>This literature review collects the reference material behind our International Bridge Conference paper, IBC-26-56, "Vessel Collision Warning System for Vulnerable Bridges &mdash; Case Studies." It gathers the primary sources &mdash; NTSB investigations and safety recommendations, FHWA and AASHTO guidance, international studies, and historical collision case studies &mdash; that inform our work on vessel collision with bridges.</p>
+                    <p>Roebling Labs' system is an information and decision-support tool: it provides real-time risk assessment to bridge operators so they can make timely, informed decisions. It does not itself prevent collisions or stop traffic; those actions remain with the operators and authorities responsible for the bridge.</p>
+
+                    <div class="lit-table-wrapper">
+                        <table class="lit-table">
+                            <colgroup>
+                                <col class="col-references">
+                                <col class="col-by">
+                                <col class="col-year">
+                                <col class="col-notes">
+                            </colgroup>
+                            <thead>
+                                <tr>
+                                    <th scope="col">References</th>
+                                    <th scope="col">By</th>
+                                    <th scope="col">Year</th>
+                                    <th scope="col">Notes</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><a href="https://drive.google.com/file/d/1AjbI6PaUWi-qDprRkQzfxrtfXnTSb_Fw/view?usp=sharing">IBC-26-56 Vessel Collision Warning System for Vulnerable Bridges - Case Studies</a></td>
+                                    <td>Snelling &amp; Burnett of Roebling Labs, presented at International Bridge Conference</td>
+                                    <td class="year">2026</td>
+                                    <td>
+                                        <p>This literature review was developed primarily to support the technical paper by Roebling Labs.</p>
+                                        <p>Appendix A - Literature Review of Vessel Collision Bridge Collapse with Life Loss in the USA</p>
+                                        <p>Appendix B - Literature Review and Timeline of Vessel Collision Warning Systems for Bridges in the USA</p>
+                                        <p>Appendix C - Literature Review of International Vessel Collision Warning Systems Using AIS</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><a href="https://data.ntsb.gov/carol-main-public/sr-details/H-25-030">Safety Recommendation H-25-030</a> - &ldquo;As part of your short-term bridge risk reduction and mitigation strategies to protect the traveling public, evaluate the need for and, if appropriate, incorporate motorist warning systems capable of activating when a threat is identified and immediately warn and stop motorists from entering onto the bridge.&rdquo;</p>
+                                        <p><a href="https://www.ntsb.gov/Advocacy/SafetyIssues/Pages/Summary-of-Bridge-Owner-Responses-to-Safety-Recommendations-H-25-3-and-H-25-04.aspx">Summary of Bridge Owner Responses to Safety Recommendations H-25-3 and H-25-4</a></p>
+                                    </td>
+                                    <td>NTSB &amp; 20 Bridge Owner Agencies with Vulnerable Bridges</td>
+                                    <td class="year">10 Dec 2025</td>
+                                    <td>
+                                        <p>Site includes official correspondence between NTSB and 30 Bridge Owner Agencies.</p>
+                                        <p>Roebling Labs' vessel collision warning system responds to NTSB Safety Recommendation H-25-030. Specifically, our system provides real-time risk assessment information that allows bridge operators to contact high-risk vessels or close the bridge.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://data.ntsb.gov/carol-main-public/sr-details/H-25-028">Safety Recommendation H-25-028</a> - TO THE FEDERAL HIGHWAY ADMINISTRATION: Research hazard alert and sensing technologies capable of detecting errant vessels and bridge movements that would indicate a need for bridge closure, and would both warn and prevent motorists from entering a bridge once a threat is detected. Provide the results of your research to the American Association of State Highway and Transportation Officials.</td>
+                                    <td>NTSB &amp; FHWA</td>
+                                    <td class="year">10 Dec 2025</td>
+                                    <td>
+                                        <p>Site includes official correspondence between NTSB and FHWA. FHWA has not yet responded (29Dec25).</p>
+                                        <p>This recommendation was voted at <a href="https://youtu.be/eFS9sGiKTeA?si=77go9kY2kDTMetrU">18 Nov 2025 NTSB Board Meeting (Youtube)</a>.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://data.ntsb.gov/carol-main-public/sr-details/H-25-029">Safety Recommendation H-25-029</a> - TO THE AMERICAN ASSOCIATION OF STATE HIGHWAY AND TRANSPORTATION OFFICIALS: Update your Guide Specifications and Commentary for Vessel Collision Design of Highway Bridges to include guidance in the selection of motorist warning systems. Evaluated changes should include Federal Highway Administration research on hazard alert and sensing technologies capable of detecting errant vessels and bridge movements that would indicate a need for bridge closure, and would both warn and prevent motorists from entering a bridge once a threat is detected</td>
+                                    <td>NTSB &amp; AASHTO</td>
+                                    <td class="year">10 Dec 2025</td>
+                                    <td>
+                                        <p>Site includes official correspondence between NTSB and AASHTO.</p>
+                                        <p>For reference, AASHTO took 11 years to codify updates following the Sunshine Skyway bridge collapse in 1980.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ntsb.gov/investigations/Pages/DCA24MM031.aspx">Contact of Containership Dali with Francis Scott Key Bridge and Subsequent Bridge Collapse</a> - final website with final report (<a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/MIR2540.pdf">MIR-25-40</a>), preliminary report (<a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/MIR2510.pdf">MIR-25-10</a>), <a href="https://data.ntsb.gov/Docket/?NTSBNumber=DCA24MM031">docket of primary resources</a>, and recommendations with responses.</td>
+                                    <td>NTSB</td>
+                                    <td class="year">2025</td>
+                                    <td>Definitive investigation into the March 2024 collapse of FSK Bridge. Electrical blackout of ship.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://data.ntsb.gov/carol-main-public/sr-details/H-25-001">Safety Recommendation H-25-001</a> - TO THE FEDERAL HIGHWAY ADMINISTRATION: In coordination with the US Coast Guard and US Army Corps of Engineers, establish an interdisciplinary team--including representatives from the Federal Highway Administration, US Coast Guard, and US Army Corps of Engineers--and provide guidance and assistance to bridge owners on evaluating and reducing the risk of a bridge collapse from a vessel collision. (Urgent)</td>
+                                    <td>NTSB &amp; FHWA</td>
+                                    <td class="year">2025</td>
+                                    <td>Site includes official correspondence between NTSB and FHWA.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://data.ntsb.gov/carol-main-public/sr-details/H-25-002">Safety Recommendation H-25-002</a> - TO THE US COAST GUARD AND THE US ARMY CORPS OF ENGINEERS: Support the Federal Highway Administration in establishing an interdisciplinary team--including representatives from the Federal Highway Administration, US Coast Guard, and US Army Corps of Engineers--and provide guidance and assistance to bridge owners on evaluating and reducing the risk of a bridge collapse from a vessel collision. (Urgent)</td>
+                                    <td>NTSB, USCG, &amp; USACE</td>
+                                    <td class="year">20 March 2025</td>
+                                    <td>Site includes official correspondence between NTSB and the affected agencies.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://data.ntsb.gov/carol-main-public/sr-details/H-25-003">Safety Recommendation H-25-003</a> - Calculate the American Association of State Highway and Transportation Officials (AASHTO) Method II annual frequency of collapse for the bridge(s) identified in appendix B of this report for which you are responsible and inform the National Transportation Safety Board whether the probability of collapse is above the AASHTO threshold. (Urgent)</td>
+                                    <td>NTSB &amp; 30 Bridge Owner Agencies with Vulnerable Bridges</td>
+                                    <td class="year">20 March 2025</td>
+                                    <td>Site includes official correspondence between NTSB and the affected agencies.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://data.ntsb.gov/carol-main-public/sr-details/H-25-004">Safety Recommendation H-25-004</a> - If the calculations that you performed in response to Safety Recommendation H-25-3 indicate that a bridge has an annual frequency of collapse greater than the American Association of State Highway and Transportation Officials threshold, develop and implement a comprehensive risk reduction plan that includes, at a minimum:
+                                        <ul>
+                                            <li>guidance and assistance from the Federal Highway Administration, US Coast Guard, and US Army Corps of Engineers Interdisciplinary Team identified in Safety Recommendations H-25-1 and H-25-2, and</li>
+                                            <li>short- and long-term strategies to reduce the probability of a potential bridge collapse from a vessel collision. (Urgent)</li>
+                                        </ul>
+                                    </td>
+                                    <td>NTSB &amp; 30 Bridge Owner Agencies with Vulnerable Bridges</td>
+                                    <td class="year">20 March 2025</td>
+                                    <td>Site includes official correspondence between NTSB and the affected agencies.</td>
+                                </tr>
+                                <tr>
+                                    <td>Guide Specifications and Commentary for Vessel Collision Design of Highway Bridges, 2nd Edition, with 2010 Interim Revisions <a href="https://store.transportation.org/MyStore/PaidPublication/1346/360211">(Available for purchase from AASHTO)</a></td>
+                                    <td>AASHTO</td>
+                                    <td class="year">2009</td>
+                                    <td>
+                                        <p>Definitive design standard that has been partially superseded. Much of the content has been incorporated into the AASHTO LRFD Bridge Design Specifications, 10th Edition (2024). However, this Guide Spec remains relevant and includes additional information and context not found in the more general LRFD specification.</p>
+                                        <p>Particularly when calculating the &ldquo;Consequences of Collision&rdquo; associated with our real-time threat ranking of vessels, Roebling Labs will follow the formulas and procedures established by AASHTO in its design standards.</p>
+                                        <p>The code also contains applicable information to inform our approach for estimating &ldquo;Probabilities of Collision&rdquo; in real-time.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ntsb.gov/Advocacy/SafetyIssues/Pages/Bridge-Collapse-and-Other-Infrastructure-Failures.aspx">Bridge Collapses and Other Infrastructure Failures</a></td>
+                                    <td>NTSB</td>
+                                    <td class="year">Currently</td>
+                                    <td>
+                                        <p>High level overview of NTSB investigations into bridge and tunnel collapses over the last few decades, with open recommendations to industry and owners.</p>
+                                        <p>Includes recommendations related to the need for vessel collision warning systems for vulnerable bridges.</p>
+                                        <p>Also includes recommendations related to warning systems to alert the traveling public immediately after a bridge has collapsed, to avoid driving into the void.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/MAR8103.pdf">MAR8103 - RAMMING OF THE SUNSHINE SKYWAY BRIDGE BY THE LIBERIAN BULK CARRIER SUMMIT VENTURE, TAMPA BAY, FLORIDA</a></p>
+                                        <p>Includes the following recommendations to FHWA:</p>
+                                        <ul>
+                                            <li>M-81-18: Develop standards for the design, performance, and installation of bridge span failure detection and warning systems.</li>
+                                            <li>M-81-19: Establish criteria to evaluate the need for installing bridge span failure detection and warning systems on existing and proposed bridges.</li>
+                                        </ul>
+                                    </td>
+                                    <td>NTSB</td>
+                                    <td class="year">1981</td>
+                                    <td>
+                                        <p>Definitive investigation into the March 1980 collapse of Sunshine Skyway bridge. Sudden storm caused loss of visibility while blowing ship off course.</p>
+                                        <p>This incident spurred the modern era of considering vessel collision (strength and avoidance) during the design of new bridges with <a href="https://rosap.ntl.bts.gov/view/dot/74807">1st Edition AASHTO Guide Specifications for Vessel Collision Design for Highway Bridges (</a>superseded) that was published in 1991 or 11 years after the collapse of Sunshine Skyway.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.fhwa.dot.gov/bridge/memos/801208.cfm">Memo: Motorist Warning System on Bridges Subject to Ship Collisions</a> (Superseded by 1983 Memo with Appendix A)</td>
+                                    <td>FHWA</td>
+                                    <td class="year">12 Dec 1980</td>
+                                    <td>
+                                        <p>Describes the possibility that &ldquo;the most practical warning device is considered to be some type of electrical conductor attached to or part of the bridge which will activate warning systems and/or gates when continuity is disrupted (span collapse).&rdquo;</p>
+                                        <p>And advises owners that: &ldquo;Federal funds may be used to construct warning systems on existing bridges and on new construction&hellip;&rdquo;</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.fhwa.dot.gov/engineering/hydraulics/policymemo/t514019.cfm">Technical Advisory (T5140.19) Pier Protection and Warning Systems for Bridges Subject to Ship Collision</a> with <a href="https://www.fhwa.dot.gov/engineering/hydraulics/policymemo/t514019a.cfm">Appendix A - Alternative Surveillance and Warning Systems</a></td>
+                                    <td>FHWA</td>
+                                    <td class="year">11 Feb 1983</td>
+                                    <td>
+                                        <p>Appendix A provides descriptions of &ldquo;Alternative Surveillance and Warning Systems for Bridge Subject to Ship Collisions.&rdquo; Three basic categories of systems are identified: I. Prevention, II. Detection, and III. Warning. Basic descriptions with pros and cons of each type and sub-type of proposed systems are presented, along with sketches.</p>
+                                        <p>I. Design Category - Prevention</p>
+                                        <ul>
+                                            <li>A. System Element - Pier Markings</li>
+                                            <li>B. Subsurface Attenuation Devices</li>
+                                            <li>C. Fender System</li>
+                                        </ul>
+                                        <p>II. Detection<br>with Probabilistic Determination</p>
+                                        <ul>
+                                            <li>A. Ship Channel Surveillance (Laser)</li>
+                                            <li>B. Radar System</li>
+                                            <li>C. Closed Circuit Television</li>
+                                            <li>D. Radio Beam Guidance System</li>
+                                        </ul>
+                                        <p>with Impact Occurrence</p>
+                                        <ul>
+                                            <li>E. Bridge Continuity</li>
+                                            <li>F. Pier Vibration</li>
+                                            <li>G. Roadway Delineation (Reflectors)</li>
+                                            <li>H. Roadway Delineation (Rail Lighting)</li>
+                                        </ul>
+                                        <p>III. Warning</p>
+                                        <ul>
+                                            <li>A. Passive Signing with Flashers</li>
+                                            <li>B. Dynamic Signing</li>
+                                            <li>C. Signals and Gates</li>
+                                            <li>D. Lane Control Signs</li>
+                                            <li>E. Audible Alarm and Signs</li>
+                                            <li>F. Citizen Band Radio</li>
+                                            <li>G. Traffic Signals</li>
+                                        </ul>
+                                        <p>A table scoring various combinations of the above elements is also presented.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.nationalacademies.org/read/27742/chapter/1">Ship Collisions with Bridges, The Nature of the Accidents, Their Prevention and Mitigation</a></td>
+                                    <td>National Research Council, Marine Board</td>
+                                    <td class="year">1982</td>
+                                    <td>
+                                        <p>An authoritative report from a committee formed from the top experts from industry, government, and academics to provide a broad overview of the problem and potential solutions to ship collisions with bridges.</p>
+                                        <p>Among other recommendations, is the &ldquo;Urgently needed &hellip; Criteria for motorist warning and restraint systems.&rdquo;</p>
+                                        <p>A sub-chapter on Motorist Warning Systems provides a less detailed discussion of ideas presented in Appendix A of the 1983 FHWA memo above.</p>
+                                        <p>Furthermore, the report includes an entire chapter called &ldquo;The Historical Record&rdquo; that lists and summarizes 20 significant ship collisions with bridges between 1960 and 1982, including three separate collisions with the Chesapeake Bay Bridge-Tunnel in Virginia.</p>
+                                        <p>The annual occurrence of serious ship-bridge collisions worldwide was 1.5 for the period 1971 to 1982.</p>
+                                        <p>&rdquo;The statistical base is also more anecdotal than complete but is nevertheless sufficient to indicate that the damages, economic effects, and, most importantly, the loss of more than 100 lives (56 in the United States [from 1962 to 1982]) from ship collisions with bridges far exceed those from earthquakes, winds, and waves.&rdquo;</p>
+                                        <p>&rdquo;The record of ship-bridge collisions reveals some preliminary considerations for design that would not normally occur to a bridge engineer. &hellip; For example, in 19 ship-bridge collisions worldwide &hellip; 13 were struck in approach piers and only 6 in the main piers. In three of the collisions with approach piers, the side superstructure of the bridge was also struck.&rdquo;</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>HAR-04/05 <a href="https://www.ntsb.gov/investigations/Pages/HWY02MH019.aspx">U.S. Towboat Robert Y. Love Allision With Interstate 40 Highway Bridge Near Webbers Falls</a></td>
+                                    <td>NTSB</td>
+                                    <td class="year">2004</td>
+                                    <td>
+                                        <p>Highway traffic continued to drive into the void created by the collapsed spans after being rammed by empty barges after the tug boat captain lost consciousness. This incident included 14 fatalities and 5 injuries.</p>
+                                        <p>Note that this incident occurred on an inland waterway, not an ocean channel that has been the recent focus in response to the FSK collapse in 2024.</p>
+                                        <p>&rdquo;New Recommendations&rdquo; included:<br>
+                                        To FHWA: &ldquo;Develop an effective motorist warning system to stop motor vehicle traffic in the event of a partial or total bridge collapse. (H-04-30)&rdquo;<br>
+                                        To AASHTO: &ldquo;Once an effective motorist warning system has been developed, provide guidance to the States on its use. (H-04-31)&rdquo;</p>
+                                        <p>&rdquo;The Safety Board has addressed the installation of bridge motorist warning systems in previous accident investigations involving the Lake Pontchartrain Causeway, Sunshine Skyway Bridge, and Sidney Lanier Bridge.&rdquo;</p>
+                                        <p>Between 1992 to 2001 the Coast Guard/AWO - Allision Work Group database included 2,692 bridge allisions involving inland towing vessels and barges &mdash; one bridge alone was struck 170 times. USACE calculated a rate of 6 bridge allisions for every 10,000 towing vessel trips. Of the 2,692 allisions studied, 61 were classified in &ldquo;Severity Class 4&rdquo;, the highest, involving damage over $500,000 or loss of life or injuries or missing persons or oil spilled. Three of the incidents had fatalities.</p>
+                                        <p>&rdquo;Bridge allisions involving towing vessels continue to occur, often with catastrophic consequences. In the past 10 years, 70 people have died in such accidents, all third parties who happened to be crossing the bridge at the time of the accident. The Coast Guard-AWO Work Group reported that 68 percent of bridge allisions were caused by poor operator decision-making. Consequently, remedial action to prevent or to reduce the frequency of bridge allisions involving towboats must focus not only on the physical characteristics of waterways but also on measures to improve the ability of towing vessel operators to make sound decisions.&rdquo;</p>
+                                        <p>&rdquo;Although ODOT installed pier protection cells inside the navigation channel, the I-40 bridge accident occurred outside the navigation channel. Such occurrences demonstrate that most bridges over navigable water can be struck either within or outside the regular navigation channel by barge tows and individual commercial vessels, thus increasing the complexity of bridge protection.&rdquo;</p>
+                                        <p>The report includes a detailed chapter on Motorist Warning Systems with examples from Lake Pontchartrain Causeway, Sunshine Skyway, and related bridge sensor (SHM) research underway at various universities and FHWA.</p>
+                                        <p>&rdquo;The most vulnerable locations for major damage to a bridge over water are the piers. Our code does not consider carefully enough collisions with barges and other commercial or enemy craft.&rdquo;</p>
+                                        <p>Appendix C - Previous Recommendations on &hellip; Motorist Warning Systems provides summaries in response to NTSB investigations and reports of the below incidents:</p>
+                                        <ul>
+                                            <li>Sidney Lanier Bridge collapse in 1972;</li>
+                                            <li>Lake Pontchartrain Causeway in 1974;</li>
+                                            <li>Benjamin Harrison Bridge in 1977;</li>
+                                            <li>Sunshine Skyway Bridge in 1980;</li>
+                                            <li>Poplar Street Bridge in 1983;</li>
+                                            <li>Poplar Street Bridge in 1984;</li>
+                                            <li>Sidney Lanier Bridge in 1987;</li>
+                                            <li>Judge William Seeber Bridge in 1993;</li>
+                                            <li>Big Bayou Canot Railroad Bridge in 1993;</li>
+                                            <li>Million Dollar Bridge in 1996;</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.fhwa.dot.gov/publications/focus/12nov/12nov04.cfm">Showcasing an Advanced Motorist Warning System in Texas</a></td>
+                                    <td>FHWA</td>
+                                    <td class="year">12 Nov 2012</td>
+                                    <td>Texas DOT designed and launched a Collapse Warning System using a continuous fiber optic cable to detect a bridge collapse and trigger traffic gates and warning signs on the new Queen Isabella Causeway bridge at South Padre Island which became operational in 2004.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.everycrsreport.com/files/20080208_RL34365_f73a60b7cbd5c185f19541ad94167176d137e48c.pdf">Ship Navigation in Harbors: Safety Issues</a></td>
+                                    <td>Congress Research Service</td>
+                                    <td class="year">2008</td>
+                                    <td>20-page-long report to the U.S. Congress summarizing the state of ship navigational safety in U.S. Ports. Prepared in the aftermath of containership Cosco Busan colliding with the San Francisco-Oakland Bay Bridge that resulted in 50,000 gallons of fuel oil spilling into the Bay.</td>
+                                </tr>
+                                <tr>
+                                    <td>Ship Collisions due to the Presence of Bridges (<a href="https://www.pianc.org/publication/ship-collisions-due-to-the-presence-of-bridges/">Available for purchase from PIANC</a>)</td>
+                                    <td>PIANC International Navigation Association</td>
+                                    <td class="year">2001</td>
+                                    <td>
+                                        <p>International committee of technical experts writing on:</p>
+                                        <ul>
+                                            <li>Existing design codes in USA, Sweden, Norway, France, and Germany, and Eurocode</li>
+                                            <li>International database of ship-bridge collisions with statistics and concluding remarks: leading causes include &ldquo;bad maneuvering, insufficient clearance, storm, and ship failure. 53% are attributable to human error, 19% technical failure, and 23% extreme circumstances. Near misses or small accidents at a site are a good predictor of a serious collision in the future.</li>
+                                            <li>Probability models including AASHTO, IABSE, Eurocode, UK, German, and applied to specific case-study bridges around Europe.</li>
+                                            <li>Safety Criteria</li>
+                                        </ul>
+                                        <p>&rdquo;There are no generally accepted safety criteria around the world. But for structural failure, the criteria found show a range of 10^-4 (0.0001) to 10^-5 for the design life time of the structure (~100 years). Somewhat contradictory with this are the criteria found specifically for ship collision with bridges: they range from 10^-3 to 10^-4 per year, i.e. 10^-1 to 10^-2 per life-time of 100 years! These probabilities of collapse are rather high, and will probably result from economic considerations.&rdquo;</p>
+                                        <ul>
+                                            <li>General Conclusions</li>
+                                        </ul>
+                                        <p>&rdquo;It would appear that more dangerous situations, such as bad weather or bends in the navigation channel, lead to more careful behavior, this not necessarily leading to more ship bridge collisions. This is a very tentative conclusion though.&rdquo;<br>
+                                        &rdquo;The most advanced practical code is the United States AASHTO code.&rdquo;</p>
+                                        <p>Recommendations include &ldquo;development of warning systems, aimed at both ship captains and bridge passengers;&rdquo;</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Ship Collision with Bridges: The Interaction between Vessel Traffic and Bridge Structures (<a href="https://iabse.org/Sys/Store/Products/296602">Available for purchase from IABSE</a>)</td>
+                                    <td><a href="https://www.iabse.org/Sys/Store/Products/296602">IABSE</a></td>
+                                    <td class="year">1993</td>
+                                    <td>
+                                        <p>Definitive international undertaking in the aftermath of Sunshine Skyway Bridge collapse and during the design of Great Belt Bridge in Denmark. This report documents the best practices developed in response to those two major events.</p>
+                                        <p>Section 10 &ldquo;Protection of the Public&rdquo; includes an overview of devices to detect vessel/bridge collision hazards, including vibration detectors, continuity circuits, and VHF radio link. It also includes an overview of manual or automatic traffic control devices including variable message signs, flashing beacons, and movable gates.</p>
+                                        <p>The section &ldquo;Ship Domain Analysis&rdquo; (page 11) introduces the concept of &ldquo;Bumper Area&rdquo; around each vessel that should not overlap with other vessel or obstructions such as bridge piers.</p>
+                                        <p>The dimensions of the bumper areas are:</p>
+                                        <ul>
+                                            <li>Open water at service speed: 8.0 L by 3.2 L</li>
+                                            <li>Narrow channels and harbors at reduced speed: 6 L by 1.6 L</li>
+                                        </ul>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.ntsb.gov/investigations/AccidentReports/Reports/RAR9401.pdf">RAR-94-01 - Derailment of Amtrak Train No. 2 on the CSXT Big Bayou Canot Bridge Near Mobile Alabama</a></td>
+                                    <td>NTSB</td>
+                                    <td class="year">1994</td>
+                                    <td>1993 - CSXT Big Bayou Canot railroad bridge in Alabama was struck by a 490-foot-long tow powered by <em>MAUVILLA</em> causing displacement of its steel girders. Limited visibility due to dense fog and the pilot's lack of competency to use radar navigation were contributing causes. The life loss was 47 people plus 111 injured on the Amtrak train <em>Sunset Limited</em> that derailed at a speed of 72 mph into the waterway upon arrival 8 minutes after the vessel collision.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://drive.google.com/file/d/1M0w2fxatm4g9vkRo1LGMV6PiqlYV-uJi/view?usp=sharing">SS AFRICAN NEPTUNE: Collision with Sidney Lanier Bridge at Brunswick, Georgia</a></td>
+                                    <td>USCG &amp; NTSB</td>
+                                    <td class="year">1974</td>
+                                    <td>10 dead. All were occupants of vehicles stopped on the approach span that was struck while the movable span opened. Post-accident recommendations included relocating the traffic control gates further away from the navigable channel.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><a href="https://www.ntsb.gov/safety/safety-recs/RecLetters/M94_12.pdf">NTSB Safety Recommendation M-94</a></p>
+                                        <p>Unable to find an online copy of NTSB Report HAR-94-03 U.S. Towboat Chris Collision with Judge William Seeber Bridge.</p>
+                                        <p>The NTSB HAR 04/05 includes discussion on this incident.</p>
+                                    </td>
+                                    <td>NTSB</td>
+                                    <td class="year">1993</td>
+                                    <td>Judge William Seeber Bridge in Louisiana was struck by a tow powered by <em>CHRIS</em> causing 145 feet of span to collapse. Inadequate pier protection and proximity to a busy lock were contributing causes. Two vehicles fell with the bridge, causing a life loss of 1. No vehicles fell into the void in the minutes after the collapse.</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p><a href="https://www.dco.uscg.mil/Portals/9/DCO%20Documents/5p/CG-5PC/INV/docs/documents/BrownwaterV.pdf">Formal Investigation into the Circumstances Surrounding the Allision Between the Barge Tow of the M/V Brown Water V and The Queen Isabella Causeway Bridge on September 15, 2001 in Port Isabel Texas, Resulting in Multiple Loss of Life</a></p>
+                                        <p>The NTSB HAR 04/05 includes discussion on this incident.</p>
+                                    </td>
+                                    <td>USCG</td>
+                                    <td class="year">2005</td>
+                                    <td>Queen Isabella Causeway in Texas was struck by an 851-foot-long tow powered by <em>Brown Water V</em> causing 160 feet of span to collapse from a height of 85 feet. The bridge's location near a bend in the navigation channel, the presence of strong cross currents, poor tow configuration (deeper draft barges placed in front), inadequate horsepower, the captain's human error, and limited nighttime visibility were contributing causes. Following the collapse, 9 vehicles entered the water through the missing bridge sections in the 15 minutes before first responders closed the bridge. The life loss was 8 people, none of which were thought to be on the spans at the time of their collapse.</td>
+                                </tr>
+                                <tr>
+                                    <td>Bridge Failures and Lessons Learnt: Future-proofing to prevent disasters (<a href="https://a.co/d/0foYthKJ">Available for purchase from Amazon</a>)</td>
+                                    <td>Fish, Richard</td>
+                                    <td class="year">2025</td>
+                                    <td>Book providing a broad global overview of bridge failures around the world since the beginning of history, including projections with regards to adapting to climate change and emerging technologies.</td>
+                                </tr>
+                                <tr>
+                                    <td>Failed Bridges. Case Studies, Causes and Consequences (<a href="https://www.amazon.com/Failed-Bridges-Studies-Causes-Consequences/dp/3433029512">Available for purchase from Amazon</a>)</td>
+                                    <td>Scheer, J.</td>
+                                    <td class="year">2010</td>
+                                    <td>Catalogue of bridge failures and root causes by a German professor.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.iwr.usace.army.mil/About/Technical-Centers/WCSC-Waterborne-Commerce-Statistics-Center/">Waterborne Commerce Statistics Center (WCSC)</a></td>
+                                    <td>U.S. Army Corps of Engineers</td>
+                                    <td class="year">Annual Reports</td>
+                                    <td>Annually updated vessel data, navigational data, commerce data, and foreign data. Vessel data includes technical details on every American commercial vessel in operation. Navigational data includes details on every commercial facility, including minor docks and river mile markers. Commerce data includes monthly estimated tonnage by commodity. Foreign data includes details on &ldquo;Schedule K&rdquo; major seaports of the world directly handling waterborne shipments in the foreign trade of the United States, foreign cargo flows between the USA and foreign ports, and entrance-clearance data on each foreign vessel passage.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://geodata.bts.gov/datasets/usdot::national-bridge-inventory/explore">National Bridge Inventory</a></td>
+                                    <td>FHWA</td>
+                                    <td class="year">Annual Updates</td>
+                                    <td>Detailed information on each highway bridge in the USA.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://data.ntsb.gov/Docket/Document/docBLOB?ID=40463188&amp;FileExtension=.PDF&amp;FileName=2%20-%20Ops%20-%20Excerpts%20Bridge%20Allision%20Work%20Group%20-USCG-AWO%20-%202003-05-21-Master.PDF">U.S. Coast Guard - American Waterways Operators, Bridge Allision Work Group</a></td>
+                                    <td>USCG-AWO</td>
+                                    <td class="year">2003</td>
+                                    <td>Detailed study of bridge allisions, mostly minor on inland waterways, over a ten year period.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.bahamasmaritime.com/wp-content/uploads/2020/10/BMA-Investigation-Report-Allision-between-the-Karen-Danielsen-and-the-Great-Belt-West-Bridge-.pdf?swcfpc=1">KAREN DANIELSEN Collision with Great Belt West Bridge</a></td>
+                                    <td>BMA-DMA</td>
+                                    <td class="year">2005</td>
+                                    <td>
+                                        <p>The 291-foot-long cargo ship failed to turn with the channel and struck a pier and superstructure of the concrete box-girder highway bridge, wedging under before coming to a halt against the adjacent railroad bridge superstructure while shearing the ship's wheelhouse in the process. The bridges received minimal structural damage and re-opened to traffic within hours. The life loss was 1 person, the ship's chief officer, who was later found to have blood alcohol concentration three times the legal limit and is believed to have fallen asleep at the wheel at least 10 minutes before the collision.</p>
+                                        <p><em>"The task of VTS Great Belt is to supervise the Great Belt [vessel] traffic to protect the bridges spanning the Great Belt and to alarm in time to stop rail and the road traffic in case of a risk of collision with the bridges."</em></p>
+                                        <p>Despite the VTS Great Belt having a full-time staff of three people assigned to tracking nearby vessels at all times, the VTS did not become aware of the incident until receiving the Mayday call from the ship personnel's radios 6 minutes after the collision had occurred. It took the VTS an additional 4 minutes (10 minutes after collision) to sound the alarm to close the roadway and an additional 12 minutes (18 minutes after the collision) to sound the alarm to stop the trains.</p>
+                                        <p>The automatic alarm function had been turned off 8 years earlier because of excessive false alarms by relying solely on a 10-minute straight line projection of each vessel's current course.</p>
+                                        <p>A project was underway to modernize the automatic alarm functions with improved vessel trajectory forecasts and a goal to activate <em>"if a ship that could constitute a hazard to the bridge unintentionally approaches the bridge at a distance of less than 10 minutes sailing time."</em> The system update will also alarm if a vessel exceeds a speed of 7 knots in designated areas around the bridge.</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://web-archive-org.translate.goog/web/20090116051425/http://ing.dk/artikel/78326-storebaeltsbro-naer-paasejlet-af-fragtskib?_x_tr_sl=auto&amp;_x_tr_tl=en&amp;_x_tr_hl=en&amp;_x_tr_pto=wapp">Great Belt near being hit by cargo ship, The monitoring center closed the bridge to car traffic for fear of disaster</a></td>
+                                    <td>Ingeni&oslash;ren</td>
+                                    <td class="year">2001</td>
+                                    <td>The 717-foot-long Cambodian cargo ship BELLA triggered an alarm from VTS Great Belt to close the Great Belt Bridge to roadway, rail traffic, and to deploy the interceptor vessel. BELLA had exceeded the required limits without reporting by marine radio and was on a collision course with a main pylon of the bridge. The captain later stated that BELLA had problems with the steering gear causing difficulties in maneuvering. The bridge was re-opened to road and rail traffic after 10 minutes.</td>
+                                </tr>
+                                <tr>
+                                    <td>(Perseus) <a href="https://www.tv2east.dk/fuld-kaptajn-pa-kollisionskurs-med-storebaeltsbroen/taet-pa-kollision-sa-meget-kan-storebaeltsbroen">Close to collision: This is how much the Great Belt Bridge can withstand</a></td>
+                                    <td>TV2 &Oslash;ST</td>
+                                    <td class="year">2016</td>
+                                    <td>2016 - PERSEUS Near Miss with Great Belt Bridge: The 250-foot-long (Estimated from 1872 dwt) Lithuanian cargo ship PERSEUS came close to colliding with the eastern pylon. VTS Great Belt detected the aberrancy, triggered an alarm to close the Great Belt Bridge to roadway and rail traffic. VTS Great Belt made radio contact with the Lithuanian captain and got him to correct the course. VTS staff estimated that the vessel missed colliding with the pylon by 40 meters or less, a very close call. The captain was taken into police custody and charged with operating under the influence of alcohol. Bridge staff said that the bridge was &ldquo;designed to withstand a collision that is 10 times as powerful&rdquo; as PERSEUS would have delivered. The bridge was re-opened to road and rail traffic after being closed for 12 minutes while the situation developed.</td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://www.mcrrc.top/bmgz/jy/gfxwj/319.html">Three-Year Action Plan for Addressing Ship-Bridge Collision Hazards</a></td>
+                                    <td>Peoples Republic of China, Ministry of Transport</td>
+                                    <td class="year">2020</td>
+                                    <td>&ldquo;Three-Year Action Plan for Hidden Danger Management of Ship-Bridge Collisions&rdquo; from 2020 to 2022, by the Ministry of Transport included installing &ldquo;active early-warning devices&rdquo; at nearly 500 highway bridges. <em>&ldquo;For bridges whose collision resistance does not meet the requirements&hellip;where it is difficult to install collision protection facilities, reinforce, or renovate them, active warning devices should be installed, and relevant departments should strengthen on-site management.&rdquo;</em></td>
+                                </tr>
+                                <tr>
+                                    <td><a href="https://drive.google.com/file/d/1A_S46ENVCTDuG475EKQJcNox8q0VUwCz/view?usp=sharing">Newport Bridge Collision</a></td>
+                                    <td>Kuesel, IABSE</td>
+                                    <td class="year">1983</td>
+                                    <td>&ldquo;In 1981 a main tower of the 488-meter Newport suspension bridge in Rhode Island, USA, was struck head on by a fully laden 45,000-ton tanker [full of oil]. The ship was shortened 3.5 meters through bow crushing, but the bridge pier suffered only superficial damage. Details of bridge design and accident are given, and forces developed during the collision are derived.&rdquo;</td>
+                                </tr>
+                                <tr>
+                                    <td>AASHTO LRFD Bridge Design Specifications, 10th Edition (<a href="https://store.transportation.org/Item/CollectionDetail?ID=268">Available for purchase from AASHTO</a>)</td>
+                                    <td>AASHTO</td>
+                                    <td class="year">2024</td>
+                                    <td>Definitive design standard that has partially replaced the 2009 AASHTO Guide Specification for Vessel Collision. This general LRFD spec is not as thorough and does appear to use the same basic formulas for impact forces.</td>
+                                </tr>
+                                <tr>
+                                    <td>Ship Dimensions and Data for Design of Marine Infrastructure - MarCom WG 235 (<a href="https://www.pianc.org/publication/ship-dimensions-and-data-for-design-of-marine-infrastructure/">Available for purchase from PIANC</a>) (<a href="https://pianc.app.box.com/s/suyod673n6vzq1x1dxthdybaombhtmho">PDF Download of Appendix A from PIANC</a>)</td>
+                                    <td>PIANC</td>
+                                    <td class="year">2022 (2025 App A)</td>
+                                    <td>This report provides information on the dimensions and characteristics of ocean-going vessels by type and size, including selected data relevant to planning and design of marine infrastructure for those vessels. Vessel dimensions and other details are provided as Appendix A in a separate Excel workbook for representative vessel sizes. Please refer to Appendix C for the glossary, abbreviations and symbols used in this text. Vessels operating in inland seas (e.g. Black Sea, Caspian Sea), lakes (e.g. &lsquo;Lakers&rsquo; operating on the Great Lakes of North America), rivers, canals and the like are not covered by this document. Information on inland waterways vessels can be found in PIANC InCom WG 16 (1996) &ndash; &lsquo;Standardisation of Ships and Inland Waterways for River/Sea Navigation&rsquo; and PIANC InCom WG 141 (2019) &ndash; &lsquo;Design Guidelines for Inland Waterway Dimensions&rsquo;.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <form id="emailSignInForm" action="https://formspree.io/f/xwkgdbvz" method="POST" class="newsletter-form">
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                    <button type="submit">Subscribe to Newsletter</button>
+                </form>
+                <div id="form-success">Thank you for subscribing! We'll be in touch soon.</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>Follow our journey.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Newsletter form submission with Formspree
+        document.getElementById('emailSignInForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const form = this;
+            const successMessage = document.getElementById('form-success');
+
+            fetch(form.action, {
+                method: form.method,
+                body: new FormData(form),
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    form.reset();
+                    successMessage.style.display = 'block';
+
+                    setTimeout(function() {
+                        successMessage.style.display = 'none';
+                    }, 5000);
+
+                    return response.json();
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Oops! There was a problem submitting your form. Please try again.');
+            });
+        });
+    </script>
+</body>
+</html>
